@@ -1,0 +1,48 @@
+<%= link_to("Cancel", {:action => 'login'}, :class => 'back-link') %>
+
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+      <%= flash[:notice] %>
+      <% flash[:notice] = nil %>
+  </div>
+<% end %>
+
+<div class="access register">
+  <h2>Create Account</h2>
+
+  <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+
+  <table summary="Access form fields">
+    <tr>
+      <th><%= f.label(:first_name) %></th>
+      <td><%= f.text_field(:first_name) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:middle_name) %></th>
+      <td><%= f.text_field(:middle_name) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:last_name) %></th>
+      <td><%= f.text_field(:last_name) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:birth_date) %></th>
+      <td><%= f.date_select(:birth_date, :order => [:day, :month, :year]) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:email) %></th>
+      <td><%= f.text_field(:email) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:password) %></th>
+      <td><%= f.password_field(:password) %></td>
+    </tr>
+  </table>
+
+  <div>
+    <%= submit_tag("Create Account") %>
+  </div>
+
+  <% end %>
+
+</div>
