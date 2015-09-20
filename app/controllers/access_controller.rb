@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
 
-  before_action :confirm_logged_in, :except => [:login, :attempt_login, :register, :create]
+  before_action :confirm_logged_in, :except => [:login, :attempt_login, :register, :create, :index]
 
   def index
   end
@@ -20,7 +20,7 @@ class AccessController < ApplicationController
       session[:user_id] = auth_user.id
       session[:email] = auth_user.email
       flash[:notice] = "Log in successful"
-      redirect_to(:action => 'index')
+      redirect_to(:controller => 'listings', :action => 'index')
     else
       flash[:notice] = "Invalid details"
       redirect_to(:action => 'login')
@@ -45,9 +45,11 @@ class AccessController < ApplicationController
 
     ## Save the object
     if @user.save
-      # If save succeeds, redirect to the index action
+      # If save succeeds, create session and redirect
       flash[:notice] = "Created your account! Good work!"
-      redirect_to(:action => 'index')
+      session[:user_id] = @user.id
+      session[:email] = @user.email
+      redirect_to(:controller => 'listings', :action => 'index')
     else
       # If save fails, redisplay the form so user can fix problemos
       flash[:notice] = @user.errors.full_messages
