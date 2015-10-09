@@ -1,7 +1,15 @@
 7 lecture questions
 each question is worth 5 marks - as much as the final deliverable. 
 
-Benefits/risks of cloud computing providers for web applications.
+1) Benefits/risks of cloud computing providers for web applications.
 Each question is maybe a 3 part question
 
 cloud - issues of interoperability between providers.
+
+2) Ethical polcies on security/privacy issues on web sites (applications) 
+
+3) what technologies did you set up for web servers, communications (websockets?
+etc), database 
+
+EVALUATE the technologies that you used
+

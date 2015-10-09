@@ -4,7 +4,7 @@ class CreateUsersUnitOfStudies < ActiveRecord::Migration
       t.integer "user_id", :null => false
       t.integer "unit_of_study_id", :null => false
     end
-    add_index :users_unit_of_studies, ["user_id", "unit_of_study_id",]
+    add_index :users_unit_of_studies, ["user_id", "unit_of_study_id"]
   end
 end
 
