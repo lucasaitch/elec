@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919233228) do
+ActiveRecord::Schema.define(version: 20151009025132) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",               limit: 50, null: false
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20150919233228) do
 
   add_index "categories_listings", ["category_id", "listing_id"], name: "index_categories_listings_on_category_id_and_listing_id"
 
+  create_table "degrees", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "listings", force: :cascade do |t|
     t.integer  "owner_id",                null: false
     t.text     "name",        limit: 100, null: false
@@ -38,6 +44,12 @@ ActiveRecord::Schema.define(version: 20150919233228) do
 
   add_index "listings", ["owner_id"], name: "index_listings_on_owner_id"
 
+  create_table "unit_of_studies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",      limit: 30, null: false
     t.string   "middle_name",     limit: 30
@@ -48,5 +60,12 @@ ActiveRecord::Schema.define(version: 20150919233228) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
+
+  create_table "users_unit_of_studies", force: :cascade do |t|
+    t.integer "user_id",          null: false
+    t.integer "unit_of_study_id", null: false
+  end
+
+  add_index "users_unit_of_studies", ["user_id", "unit_of_study_id"], name: "index_users_unit_of_studies_on_user_id_and_unit_of_study_id"
 
 end

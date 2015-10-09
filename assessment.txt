@@ -1,0 +1,7 @@
+7 lecture questions
+each question is worth 5 marks - as much as the final deliverable. 
+
+Benefits/risks of cloud computing providers for web applications.
+Each question is maybe a 3 part question
+
+cloud - issues of interoperability between providers.
