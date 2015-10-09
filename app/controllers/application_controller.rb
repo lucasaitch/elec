@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
     @session_user = User.find(session[:user_id])
   end
 
+  def avatar
+    @avatar = @session_user.avatar.url(:thumb)
+  end
+
+
 end

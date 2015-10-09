@@ -6,6 +6,8 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.newest_first
+     @session_user = User.find(session[:user_id])
+     @avatar = @session_user.avatar.url(:thumb)
   end
 
   def show
@@ -19,7 +21,7 @@ class ListingsController < ApplicationController
   def create
     # Instantiate a new object using form parameters
     @listing = Listing.new(listing_params)
-    session_user
+ 
 
     ## Save the object
     if @session_user.listings << @listing

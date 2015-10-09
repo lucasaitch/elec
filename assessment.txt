@@ -11,5 +11,7 @@ cloud - issues of interoperability between providers.
 3) what technologies did you set up for web servers, communications (websockets?
 etc), database 
 
-EVALUATE the technologies that you used
+EVALUATE the technologies that you used 
+
+SCALEABLE? what would you need to change
 
