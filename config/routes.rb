@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'user_profile/view'
+
+  get 'user_profile/edit'
+
   root "access#index"
 
   get 'access/index'

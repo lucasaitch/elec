@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
 
   layout false;
 
-  before_action :confirm_logged_in
+
 
   def index
     @listings = Listing.newest_first
