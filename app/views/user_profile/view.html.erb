@@ -1,4 +1,46 @@
 <h1>UserProfile#view</h1>
 <p>Find me in app/views/user_profile/view.html.erb</p>
 
+
+
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+      <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<div class ="photo">
   <%= image_tag(@avatar)%>
+
+</div>
+<div class="user-profile">
+  <h2>User Profile</h2>
+
+  <%= link_to("Edit your profile", {:action => 'edit'}, :class => 'profile-edit') %>
+
+  <table class="listing" summary="Listing list">
+    <tr class="header">
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Posted</th>
+    </tr>
+    <% @listings.each do |listing| %>
+    <tr>
+      <td><%= listing.name %></td>
+      <td class="center"><%= listing.description %></td>
+      <td class="center"><%= listing.price %></td>
+      <td class="center"><%= listing.created_at %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => listing.id}, :class => 'action show')%>
+        <%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
+        <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+  <br />
+  <%= link_to("Log Out", {:controller => 'access', :action => 'logout'}) %>
+
+</div>
