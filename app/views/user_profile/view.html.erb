@@ -28,20 +28,21 @@
     </tr>
    
     <tr>
-      <td><%=@name %></td>
-     # <td class="center"><%= listing.description %></td>
-     # <td class="center"><%= listing.price %></td>
-     # <td class="center"><%= listing.created_at %></td>
-     # <td class="actions">
- #       <%= link_to("Show", {:action => 'show', :id => listing.id}, :class => 'action show')%>
- #       <%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
-#        <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
-     # </td>
+      <td><%=@session_user.first_name + " " + @session_user.last_name%></td>
+
+      <td><%=@session_user.email%></td>
+
+
+
+
+
+
+
     </tr>
  
   </table>
 
-  <br />
+  br />
   <%= link_to("Log Out", {:controller => 'access', :action => 'logout'}) %>
 
 </div>

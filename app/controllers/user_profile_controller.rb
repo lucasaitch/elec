@@ -16,7 +16,7 @@ class UserProfileController < ApplicationController
   def view
     @session_user = User.find(session[:user_id])
      @avatar = @session_user.avatar.url(:thumb)   
-     @name = @session_user.name
+     @name = @session_user.first_name
   end
 
   def edit

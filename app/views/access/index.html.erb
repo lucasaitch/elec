@@ -1,4 +1,13 @@
-<h2>Unilife</h2>
+<div class="page-header">
+  <h1>
+    <%= link_to "UniLife", {:action => 'index'} %>
+    <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
+  </h1>
+</div>
+
 <% flash[:notice] = nil %>
-<%= button_to "Login",  {:action => 'login'}%>
-<%= button_to "Register", {:action => 'register'} %>
+
+<%= button_to "Login",  {:action => 'login'}, :class=> 'btn btn-default homepage-button' %>
+<hr class="faded" />
+<%= button_to "Register", {:action => 'register'}, :class=> 'btn btn-default homepage-button' %>
+
