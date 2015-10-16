@@ -1,5 +1,10 @@
 class UserProfileController < ApplicationController
 
+  layout false;
+
+
+
+
 
 
 
@@ -11,11 +16,14 @@ class UserProfileController < ApplicationController
   def view
     @session_user = User.find(session[:user_id])
      @avatar = @session_user.avatar.url(:thumb)   
+     @name = @session_user.name
   end
 
   def edit
   
   end
+
+  
 
 end
 
