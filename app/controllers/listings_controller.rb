@@ -2,8 +2,6 @@ class ListingsController < ApplicationController
 
   layout false;
 
-
-
   def index
     @listings = Listing.newest_first
      @session_user = User.find(session[:user_id])
@@ -21,7 +19,7 @@ class ListingsController < ApplicationController
   def create
     # Instantiate a new object using form parameters
     @listing = Listing.new(listing_params)
- 
+
 
     ## Save the object
     if @session_user.listings << @listing
