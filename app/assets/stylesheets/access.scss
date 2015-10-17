@@ -1,3 +1,108 @@
 // Place all the styles related to the Access controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Additional CSS file 
+Built by David Stringfield for ELEC3609
+*/
+
+/* ACCESS EXTRAS*/
+h1 a:link, h1 a:visited, h1 a:hover, h1 a:active{
+	text-decoration: none;
+	color: #000000;
+}
+
+h1 small a:link, h1 small a:visited, h1 small a:hover, h1 small a:active {
+	color: #808080;
+}
+
+.notice {
+	text-align: center;
+	color: red;
+}
+
+.page-header {
+	background: #EFEFB6;
+	text-align: center;
+	border-bottom: 1px solid #808080;
+	margin: 0px 0px 20px;
+	padding: 32px 0 5px;
+}
+
+/* To format homepage buttons */
+.homepage-button {
+  background-color: #F5F5D3;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border: none;
+  margin: 0 auto;
+  display: block;
+  width: 12em;
+  height: 10em;
+  text-align: center;
+} 
+
+.homepage-button:hover {
+	background-color: #F9F9E5;
+}
+
+/* For login page general format*/
+.login {
+	margin: 0 auto;
+	width: 90%;
+	text-align: center;
+}
+.login table {
+	margin: 0 auto;
+	width: 20em;
+	margin-bottom: 4px;
+}
+
+.login >.form-control {
+	width: 12em;
+}
+
+/* Adding gaps under and beside the table rows */
+tr.spaceUnder > td {
+	padding-bottom: 1px;
+	padding-right: 1em;
+}
+
+/* For register page general format*/
+.register {
+	margin: 0 auto;
+	width: 90%;
+	text-align: center;
+}
+.register table {
+	margin: 0 auto;
+	width: 25%;
+	margin-bottom: 4px;
+}
+
+/* Accessed from konigi.com */
+hr.faded {
+  clear: both;
+  float: none;
+  width: 100%;
+  height: 1px;
+  margin: 1.4em 0;
+  border: none;
+  background: #ddd;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      right bottom,
+      color-stop(0, rgb(255,255,255)),
+      color-stop(0.1, rgb(221,221,221)),
+      color-stop(0.9, rgb(221,221,221)),
+      color-stop(1, rgb(255,255,255))
+  );
+  background-image: -moz-linear-gradient(
+      left center,
+      rgb(255,255,255) 0%,
+      rgb(221,221,221) 10%,
+      rgb(221,221,221) 90%,
+      rgb(255,255,255) 100%
+  );
+}
