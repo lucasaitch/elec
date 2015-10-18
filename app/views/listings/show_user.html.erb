@@ -67,7 +67,7 @@
 
 
   <div class="panel panel-default">
-    <div class="panel-heading"><%= listing.name %></div>
+    <div class="panel-heading"><%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%></div>
     <div class="panel-body">
     <div class="row">
       <div class="col-sm-3">
@@ -95,11 +95,11 @@
   <tbody>
     <% @user_listings.each do |listing| %>
     <tr>
-      <td><%= listing.name %></td>
+      <td></td>
       <td><%= listing.description %></td>
       <td><%= listing.price %></td>
       <td><%= listing.created_at %></td>
-      <td><%= link_to("Show", {:action => 'show', :id => listing.id}, :class => 'action show')%></td>
+      <td</td>
         <td><%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%></td>
         <td><%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
           <td>Placeholder for image</td>
