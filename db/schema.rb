@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009040416) do
+ActiveRecord::Schema.define(version: 20151018105515) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",               limit: 50, null: false
@@ -34,12 +34,16 @@ ActiveRecord::Schema.define(version: 20151009040416) do
   end
 
   create_table "listings", force: :cascade do |t|
-    t.integer  "owner_id",                null: false
-    t.text     "name",        limit: 100, null: false
-    t.text     "description", limit: 500, null: false
-    t.decimal  "price",                   null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "owner_id",                        null: false
+    t.text     "name",                limit: 100, null: false
+    t.text     "description",         limit: 500, null: false
+    t.decimal  "price",                           null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "listings", ["owner_id"], name: "index_listings_on_owner_id"

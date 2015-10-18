@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
-  
+
+
   def index
     @listings = Listing.newest_first
      @session_user = User.find(session[:user_id])
@@ -15,6 +16,7 @@ class ListingsController < ApplicationController
   end
 
   def create
+    @session_user = User.find(session[:user_id])
     # Instantiate a new object using form parameters
     @listing = Listing.new(listing_params)
 
@@ -37,12 +39,20 @@ class ListingsController < ApplicationController
   def delete
   end
 
+  def show_user
+    @user_listings = Listing.newest_first.where('owner_id' => session[:user_id])
+     @session_user = User.find(session[:user_id])
+     @avatar = @session_user.avatar.url(:thumb)
+
+
+  end
+
   private
     def listing_params
       # same as using "params[:subject]" except that it
       # - raised an error if :subject is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:listing).permit(:name, :description, :price)
+      params.require(:listing).permit(:name, :description, :price, :avatar, :avatar_file_name)
     end
 
 end

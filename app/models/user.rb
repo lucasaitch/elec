@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :degrees, :join_table => "users_degrees"
 
   # for the profile pictures
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.jpg"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
-  
+
   STANDARD_EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
   UNI_EMAIL_REGEX = /[a-z]{4}[0-9]{4}+@uni.sydney.edu.au/i
   validates_presence_of :first_name
