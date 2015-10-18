@@ -49,6 +49,68 @@
 </nav>
 
 
+<div class="container">
+
+  <h2>Listings</h2>
+
+  <%= link_to("Add new listing", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="Listing list">
+    <tr class="header">
+
+    </tr>
+
+  </table>
+
+  <% @user_listings.each do |listing| %>
+
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= listing.name %></div>
+    <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-3">
+          <%= image_tag(@avatar)%>
+        </div>
+
+      <div class="col-sm-9">
+        <p>Panel content whatever whatever</p>
+      </div>
+    </div>
+    </div>
+  </div>
+<% end %>
+
+
+  <table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Posted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_listings.each do |listing| %>
+    <tr>
+      <td><%= listing.name %></td>
+      <td><%= listing.description %></td>
+      <td><%= listing.price %></td>
+      <td><%= listing.created_at %></td>
+      <td><%= link_to("Show", {:action => 'show', :id => listing.id}, :class => 'action show')%></td>
+        <td><%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%></td>
+        <td><%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
+          <td>Placeholder for image</td>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+</div>
 
 
 
@@ -57,40 +119,3 @@
       <%= flash[:notice] %>
   </div>
 <% end %>
-
-<div class ="photo">
-  <%= image_tag(@avatar)%>
-  <p> Print thing <%= puts @avatar %></p>
-</div>
-
-<div class="listings index">
-  <h2>Listings</h2>
-
-  <%= link_to("Add new listing", {:action => 'new'}, :class => 'action new') %>
-
-  <table class="listing" summary="Listing list">
-    <tr class="header">
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Posted</th>
-    </tr>
-    <% @user_listings.each do |listing| %>
-    <tr>
-      <td><%= listing.name %></td>
-      <td class="center"><%= listing.description %></td>
-      <td class="center"><%= listing.price %></td>
-      <td class="center"><%= listing.created_at %></td>
-      <td class="actions">
-        <%= link_to("Show", {:action => 'show', :id => listing.id}, :class => 'action show')%>
-        <%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
-        <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
-      </td>
-    </tr>
-    <% end %>
-  </table>
-
-  <br />
-
-
-</div>
