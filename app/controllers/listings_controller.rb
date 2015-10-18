@@ -1,7 +1,5 @@
 class ListingsController < ApplicationController
-
-  layout false;
-
+  
   def index
     @listings = Listing.newest_first
      @session_user = User.find(session[:user_id])

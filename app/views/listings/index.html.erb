@@ -1,41 +1,53 @@
+<div class="page-header">
+  <h1>
+    <%= link_to "UniLife", {:action => 'index'} %>
+    <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
+  </h1>
+  <div class="pull-right">
+    <%= link_to "Log Out", {:controller => 'access', :action => 'logout'}, class: 'btn btn-default header-button' %>
+  </div>
+</div>
+
 <% if !flash[:notice].blank? %>
   <div class="notice">
       <%= flash[:notice] %>
   </div>
 <% end %>
 
-<div class ="photo">
-  <%= image_tag(@avatar)%>
-  <p> Print thing <%= puts @avatar %></p>
-</div>
-<div class="listings index">
-  <h2>Listings</h2>
+<div class="container-fluid">
+    <div class ="photo">
+      <%= image_tag(@avatar)%>
+    </div>
+    <p> Print thing <%= puts @avatar %></p>
+    <div class="listings index">
+      <h2>Listings</h2>
 
-  <%= link_to("Add new listing", {:action => 'new'}, :class => 'action new') %>
+      <%= link_to "Add new listing", {:action => 'new'}, :class => 'btn btn-default new-listing-button' %>
 
-  <table class="listing" summary="Listing list">
-    <tr class="header">
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Posted</th>
-    </tr>
-    <% @listings.each do |listing| %>
-    <tr>
-      <td><%= listing.name %></td>
-      <td class="center"><%= listing.description %></td>
-      <td class="center"><%= listing.price %></td>
-      <td class="center"><%= listing.created_at %></td>
-      <td class="actions">
-        <%= link_to("Show", {:action => 'show', :id => listing.id}, :class => 'action show')%>
-        <%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
-        <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+      <table class="listing" summary="Listing list" width="inherit">
+        <tr class="header">
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Posted</th>
+        </tr>
+        <% @listings.each do |listing| %>
+        <tr>
+          <td><%= listing.name %></td>
+          <td class="center"><%= listing.description %></td>
+          <td class="center"><%= listing.price %></td>
+          <td class="center"><%= listing.created_at %></td>
+          <td class="actions">
+            <%= link_to("Show", {:action => 'show', :id => listing.id}, :class => 'action show')%>
+            <%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
+            <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
+          </td>
+        </tr>
+        <% end %>
+      </table>
 
-  <br />
-  <%= link_to("Log Out", {:controller => 'access', :action => 'logout'}) %>
+      <br />
+      <hr class="faded"/>
 
+    </div>
 </div>

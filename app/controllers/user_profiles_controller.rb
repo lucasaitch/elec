@@ -1,7 +1,5 @@
 class UserProfilesController < ApplicationController
 
-  layout false;
-
   def show
     @session_user = User.find(session[:user_id])
      @avatar = @session_user.avatar.url(:thumb)
