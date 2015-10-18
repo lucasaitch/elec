@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 
-  layout false;
+  #layout false;
 
   def index
     @listings = Listing.newest_first

@@ -1,6 +1,6 @@
 class UserProfilesController < ApplicationController
 
-  layout false;
+  #layout false;
 
   def show
     @session_user = User.find(session[:user_id])
