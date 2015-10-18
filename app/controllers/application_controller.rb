@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :confirm_logged_in #inherited by all
 #  before_action :session_user
   private
-  
+
   def confirm_logged_in
     unless session[:user_id]
       flash[:notice] = "You do not have permission to be going there"
@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-#  def session_user
-#    @session_user = User.find(session[:user_id])
-#  end
+ def session_user
+    @session_user = User.find(session[:user_id]) if session[:user_id]  
+ end
 
   def avatar
     @avatar = @session_user.avatar.url(:thumb)
