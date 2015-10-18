@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 
-  layout false;
+  #layout false;
 
   def index
     @listings = Listing.newest_first
@@ -17,6 +17,7 @@ class ListingsController < ApplicationController
   end
 
   def create
+    @session_user = User.find(session[:user_id])
     # Instantiate a new object using form parameters
     @listing = Listing.new(listing_params)
 
@@ -37,6 +38,14 @@ class ListingsController < ApplicationController
   end
 
   def delete
+  end
+
+  def show_user
+    @user_listings = Listing.newest_first.where('owner_id' => session[:user_id])
+     @session_user = User.find(session[:user_id])
+     @avatar = @session_user.avatar.url(:thumb)
+
+
   end
 
   private
