@@ -18,6 +18,10 @@
       <th>Price</th>
       <td><%= f.text_field(:price) %></td>
     </tr>
+      <tr><th> <%= f.label :avatar, class: 'col-sm-2 control-label'  %></th>
+          <td> <%= f.file_field :avatar %></td>
+        </tr>
+
   </table>
 
   <div>

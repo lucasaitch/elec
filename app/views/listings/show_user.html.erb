@@ -71,7 +71,7 @@
     <div class="panel-body">
     <div class="row">
       <div class="col-xs-3">
-          <%= image_tag(@avatar)%>
+        <%= image_tag(listing.avatar.url(:medium)) %>
         </div>
 
       <div class="col-xs-9">
@@ -88,7 +88,7 @@
             <td><%= listing.description %></td>
             <td><%= listing.price %></td>
             <td><%= listing.created_at %></td>
-          
+
               <td><%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%></td>
               <td><%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
             </td>
