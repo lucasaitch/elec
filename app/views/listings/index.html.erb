@@ -1,8 +1,40 @@
 <div class="page-header">
   <h1>
-    <%= link_to "UniLife", {:action => 'index'} %>
+    <div class="headleft">
+      
+    <%= image_tag("medium/unilife logo.jpg", :alt => "rss feed") %>
+
+    <br>
+    
     <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
-  </h1>
+    
+   <small> <%= form_tag("/search", method: "get") do %>
+  
+<% end %>
+
+</div>
+   <br>
+   
+   <div class="headright">
+    
+   <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
+  </div>
+
+    <div class="headcenter">
+ <h4>
+    <%= form_tag("/search", method: "get") do %>
+  <%= label_tag( ) %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+ <h4>
+  </div>
+  
+ 
+  
+    </h1>
+  </div>
+  
   <div class="pull-right">
     <%= link_to "Log Out", {:controller => 'access', :action => 'logout'}, class: 'btn btn-default header-button' %>
   </div>
@@ -21,6 +53,8 @@
     <p> Print thing <%= puts @avatar %></p>
     <div class="listings index">
       <h2>Listings</h2>
+      
+      
 
       <%= link_to "Add new listing", {:action => 'new'}, :class => 'btn btn-default new-listing-button' %>
 
