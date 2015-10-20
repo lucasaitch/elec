@@ -1,4 +1,10 @@
 class Listing < ActiveRecord::Base
+  
+  def self.search(search)
+  where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%") 
+  
+  end
+
 
   belongs_to :user, foreign_key: 'owner_id'
   has_and_belongs_to_many :categories, :join_table => "categories_listings"

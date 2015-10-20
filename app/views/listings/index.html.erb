@@ -6,7 +6,22 @@
   <div class="pull-right">
     <%= link_to "Log Out", {:controller => 'access', :action => 'logout'}, class: 'btn btn-default header-button' %>
   </div>
+  
+  <h4>
+   
+    <%= form_tag listings_path, :method => "get" do %>
+
+  <%= text_field_tag :search, params[:search]   %>
+  
+  <%= submit_tag("search")  %>
+<% end %>
+ 
+
+ <h4>
+
 </div>
+
+
 
 <% if !flash[:notice].blank? %>
   <div class="notice">
@@ -38,10 +53,11 @@
           <td class="center"><%= listing.price %></td>
           <td class="center"><%= listing.created_at %></td>
           <td class="actions">
-            <%= link_to("Show", {:action => 'show', :id => listing.id}, :class => 'action show')%>
-            <%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
-            <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
-          </td>
+           <%= link_to "Show", {:action => 'show', :id => listing.id}, :class => 'action show'   %>
+          
+            <%= link_to "Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit' if listing.owner_id ==  session[:user_id] %>
+            <%= link_to  "Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete' if listing.owner_id ==  session[:user_id] %>
+
         </tr>
         <% end %>
       </table>

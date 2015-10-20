@@ -4,6 +4,12 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.newest_first
      @session_user = User.find(session[:user_id])
+    if params[:search]
+    @listings = Listing.search(params[:search]).order("created_at DESC")
+    else
+    @posts = Listing.all.order('created_at DESC')
+    end
+
      @avatar = @session_user.avatar.url(:thumb)
   end
 
