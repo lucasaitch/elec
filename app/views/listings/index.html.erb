@@ -8,9 +8,7 @@
     
     <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
     
-   <small> <%= form_tag("/search", method: "get") do %>
-  
-<% end %>
+   
 
 </div>
    <br>
@@ -22,11 +20,15 @@
 
     <div class="headcenter">
  <h4>
-    <%= form_tag("/search", method: "get") do %>
-  <%= label_tag( ) %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
+   
+    <%= form_tag listings_path, :method => "get" do %>
+
+  <%= text_field_tag :search, params[:search]   %>
+  
+  <%= submit_tag("search")  %>
 <% end %>
+ 
+
  <h4>
   </div>
   

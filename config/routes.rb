@@ -17,7 +17,12 @@ Rails.application.routes.draw do
   post 'login' => 'access#login'
 
 
+ 
   get 'listings' => 'listings#index'
+  
+  
+get 'listings' , :to => 'listings#show', :as => :search_listings
+  
 
   get 'show_listing' => 'listings#show'
 
@@ -30,6 +35,8 @@ Rails.application.routes.draw do
   get 'user_listings' => 'listings#show_user'
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
+  
+ 
 
 
 
