@@ -1,9 +1,12 @@
 class Listing < ActiveRecord::Base
 
 
+
+
+
 def self.search(search)
-  where("name LIKE ?", "%#{search}%") 
-  where("description LIKE ?", "%#{search}%")
+  where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%") 
+  
 end
 
 
