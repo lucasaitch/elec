@@ -47,6 +47,10 @@
               <th><%= f.label(:avatar) %></th>
               <td><%= f.file_field :avatar %>
           </tr>
+          <tr>
+            <th><%= f.label(:unit_of_studies) %></th>
+            <td><%= f.text_field(:unit_of_studies, class: "input-group form-control") %></td>
+          </tr>
           </table>
 
             <div>
@@ -57,5 +61,3 @@
               <%= link_to("Cancel", {:action => 'login'}, :class => 'back-link') %>
 
             </div>
-
-
