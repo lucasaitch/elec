@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021114246) do
+ActiveRecord::Schema.define(version: 20151021120245) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",               limit: 50, null: false
@@ -88,20 +88,5 @@ ActiveRecord::Schema.define(version: 20151021114246) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
   end
-
-  create_table "users_degrees", id: false, force: :cascade do |t|
-    t.integer "user_id",      null: false
-    t.integer "degree_id",    null: false
-    t.date    "commencement"
-  end
-
-  add_index "users_degrees", ["user_id", "degree_id"], name: "index_users_degrees_on_user_id_and_degree_id"
-
-  create_table "users_unit_of_studies", id: false, force: :cascade do |t|
-    t.integer "user_id",          null: false
-    t.integer "unit_of_study_id", null: false
-  end
-
-  add_index "users_unit_of_studies", ["user_id", "unit_of_study_id"], name: "index_users_unit_of_studies_on_user_id_and_unit_of_study_id"
 
 end

@@ -5,4 +5,6 @@ class UserUnitOfStudy < ActiveRecord::Base
   #relations
   belongs_to :user
   belongs_to :unit_of_study
+
+  accepts_nested_attributes_for :unit_of_study, :reject_if => :all_blank
 end

@@ -6,13 +6,15 @@ class User < ActiveRecord::Base
   #has_many through relationship is easier to access through forms than HABTM
   has_many :user_unit_of_studies
   has_many :unit_of_studies, :through => :user_unit_of_studies
+  accepts_nested_attributes_for :unit_of_studies
+  accepts_nested_attributes_for :user_unit_of_studies
 
 
   has_many :user_degrees
   has_many :degrees, :through => :user_degrees
+  accepts_nested_attributes_for :degrees
+  accepts_nested_attributes_for :user_degrees
 
-
-  accepts_nested_attributes_for :unit_of_studies, allow_destroy: true
 
   # for the profile pictures
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.jpg"
