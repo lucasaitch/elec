@@ -41,6 +41,27 @@ class ListingsController < ApplicationController
 
 
 
+  def update
+   @session_user = User.find(session[:user_id])
+ @listing = Listing.find(params[:id])
+     @listing.update_attributes(listing_params)
+    
+   
+
+    ## Save the object
+    if @session_user.listings << @listing
+      # If save succeeds, create session and redirect
+      flash[:notice] = "Your post was succesfuly edited"
+      redirect_to(:controller => 'listings', :action => 'index')
+    else
+      # If save fails, redisplay the form so user can fix problemos
+      flash[:notice] = @listing.errors.full_messages
+      render('new')
+    end
+  end
+  
+  
+  
   def edit
      @listing = Listing.find(params[:id])
    
