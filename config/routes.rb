@@ -27,12 +27,11 @@ Rails.application.routes.draw do
 
   get 'edit_listing' =>'listings#edit', :as => :listing
   
-
   get 'delete_listing' => 'listings#delete'
 
   get 'user_listings' => 'listings#show_user'
 
-  match ':controller(/:action(/:id))', :via => [:get, :post]
+  match ':controller(/:action(/:id))', :via => [:get, :post, :patch]
   
  
 

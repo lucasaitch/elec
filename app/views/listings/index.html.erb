@@ -2,7 +2,8 @@
   <h1>
     <div class="headleft">
       
-    <%= image_tag("medium/unilifelogo.jpg", :alt => "rss feed") %>
+    <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
+    
 
     <br>
     
@@ -68,7 +69,7 @@
         </tr>
         <% @listings.each do |listing| %>
         <tr>
-          
+           <td class="center"><%= listing.name %></td>
           <td class="center"><%= listing.description %></td>
           <td class="center"><%= listing.price %></td>
           <td class="center"><%= listing.created_at %></td>
