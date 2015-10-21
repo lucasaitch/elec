@@ -43,9 +43,16 @@ class ListingsController < ApplicationController
   end
 
   def edit
+     @listing = Listing.find(params[:id])
+   
   end
 
   def delete
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    redirect_to :action => 'index'
+    
+    
   end
 
   def show_user

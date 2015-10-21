@@ -20,15 +20,13 @@ Rails.application.routes.draw do
  
   get 'listings' => 'listings#index'
   
-  
-get 'listings' , :to => 'listings#show', :as => :search_listings
-  
 
   get 'show_listing' => 'listings#show'
 
   get 'new_listing' => 'listings#new'
 
-  get 'edit_listing' =>'listings#edit'
+  get 'edit_listing' =>'listings#edit', :as => :listing
+  
 
   get 'delete_listing' => 'listings#delete'
 
