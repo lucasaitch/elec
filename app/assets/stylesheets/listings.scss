@@ -1,3 +1,63 @@
 // Place all the styles related to the Listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Additional CSS file 
+Built by David Stringfield for ELEC3609
+*/
+
+.container-fluid {
+	margin: 0 auto;
+	width: 60%;
+}
+
+.header-button, .header-button:visited {
+	position: relative;
+  	background-color: #F5F5D3;
+}
+
+.photo {
+	width: 128px;
+	height: 128px;
+	border: 1px solid #808080;
+}
+
+.new-listing-button, .newlisteing-button:visited {
+	margin: 0 auto;
+	margin-bottom: 20px;
+	background-color: #F5F5D3;
+}
+
+.header-button:hover, .new-listing-button:hover {
+	background-color: #F9F9E5;
+}
+
+.page-header > .pull-right {
+	bottom: 38px;
+	right: 20px;
+    position: relative;
+}
+
+table.listing {
+	width: 90%;
+	float: right;
+}
+
+/*Additional CSS for small format screens*/
+@media (max-width: 767px) {
+    .container-fluid {
+     	padding: 0;
+     	margin: 0 10px;
+     	width: 100%;
+    }
+}
+
+.new-listing {
+	margin: 0 auto;
+	width: 100%;
+}
+
+/*Layout for new listing*/
+#new-listing-table {
+	margin-bottom: 10px;
+}

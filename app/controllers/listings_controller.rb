@@ -1,12 +1,15 @@
 class ListingsController < ApplicationController
 
-  layout false;
-
-
 
   def index
     @listings = Listing.newest_first
      @session_user = User.find(session[:user_id])
+    if params[:search]
+    @listings = Listing.search(params[:search]).order("created_at DESC")
+    else
+    @posts = Listing.all.order('created_at DESC')
+    end
+
      @avatar = @session_user.avatar.url(:thumb)
   end
 
@@ -19,9 +22,10 @@ class ListingsController < ApplicationController
   end
 
   def create
+    @session_user = User.find(session[:user_id])
     # Instantiate a new object using form parameters
     @listing = Listing.new(listing_params)
- 
+
 
     ## Save the object
     if @session_user.listings << @listing
@@ -35,10 +39,28 @@ class ListingsController < ApplicationController
     end
   end
 
+
+
   def edit
+     @listing = Listing.find(params[:id])
+   
   end
 
   def delete
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    redirect_to :action => 'index'
+    
+    
+  end
+
+
+  def show_user
+    @user_listings = Listing.newest_first.where('owner_id' => session[:user_id])
+     @session_user = User.find(session[:user_id])
+     @avatar = @session_user.avatar.url(:thumb)
+
+
   end
 
   private
@@ -46,7 +68,7 @@ class ListingsController < ApplicationController
       # same as using "params[:subject]" except that it
       # - raised an error if :subject is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:listing).permit(:name, :description, :price)
+      params.require(:listing).permit(:name, :description, :price, :avatar, :avatar_file_name)
     end
 
 end

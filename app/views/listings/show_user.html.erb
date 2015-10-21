@@ -1,0 +1,116 @@
+
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">UniLife</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">Classified Listings</a></li>
+        <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">My Listings</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+
+          </ul>
+        </li>
+      </ul>
+
+      <form class="navbar-form navbar-left" role="search" abineguid="FC76AB39EEDD4A7785AC8A51D42C604C">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to ("Welcome, " + @session_user.first_name + " " + @session_user.last_name),   '#' %></li>
+        <li><%= link_to("Log Out", {:controller => 'access', :action => 'logout'}) %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+
+  <h2>Listings</h2>
+
+  <%= link_to("Add new listing", {:action => 'new'}, :class => 'action new') %>
+
+  <table class="listing" summary="Listing list">
+    <tr class="header">
+
+    </tr>
+
+  </table>
+
+  <% @user_listings.each do |listing| %>
+
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%></div>
+    <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-3">
+        <%= image_tag(listing.avatar.url(:medium)) %>
+        </div>
+
+      <div class="col-xs-9">
+        <table class="table table-striped table-hover ">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Posted</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= listing.description %></td>
+            <td><%= listing.price %></td>
+            <td><%= listing.created_at %></td>
+
+              <td><%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%></td>
+              <td><%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      </div>
+    </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+</div>
+
+
+
+<% if !flash[:notice].blank? %>
+  <div class="notice">
+      <%= flash[:notice] %>
+  </div>
+<% end %>

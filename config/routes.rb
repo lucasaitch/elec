@@ -1,28 +1,39 @@
 Rails.application.routes.draw do
 
-  get 'user_profile/view'
+  resources :user_profiles
 
-  get 'user_profile/edit'
+  get 'profile' => 'user_profiles#show'
+
+  get 'edit_profile' => 'user_profiles#edit'
+
+  get 'new_user' => 'access#register'
+
+  post 'new_user' => 'access#register'
 
   root "access#index"
 
-  get 'access/index'
+  get 'login' => 'access#login'
 
-  get 'access/login'
+  post 'login' => 'access#login'
 
-  get 'access/register'
 
-  get 'listings/index'
+  get 'listings' => 'listings#index'
 
-  get 'listings/show'
+  get 'show_listing' => 'listings#show'
 
-  get 'listings/new'
+  get 'new_listing' => 'listings#new'
 
-  get 'listings/edit'
 
-  get 'listings/delete'
+  get 'edit_listing' =>'listings#edit', :as => :listing
+
+
+  get 'delete_listing' => 'listings#delete'
+
+  get 'user_listings' => 'listings#show_user'
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
