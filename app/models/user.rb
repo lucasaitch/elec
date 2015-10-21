@@ -2,8 +2,17 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :listings, :foreign_key => "owner_id"
-  has_and_belongs_to_many :unit_of_studies, :join_table => "users_unit_of_studies"
-  has_and_belongs_to_many :degrees, :join_table => "users_degrees"
+
+  #has_many through relationship is easier to access through forms than HABTM
+  has_many :users_unit_of_studies
+  has_many :unit_of_studies, :through => :users_unit_of_studies
+
+
+  has_many :users_degrees
+  has_many :degrees, :through => :users_degrees
+
+
+  accepts_nested_attributes_for :unit_of_studies, allow_destroy: true
 
   # for the profile pictures
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.jpg"
