@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20151018115026) do
 
   add_index "users_degrees", ["user_id", "degree_id"], name: "index_users_degrees_on_user_id_and_degree_id"
 
-  create_table "users_unit_of_studies", force: :cascade do |t|
+  create_table "users_unit_of_studies", id: false, force: :cascade do |t|
     t.integer "user_id",          null: false
     t.integer "unit_of_study_id", null: false
   end
