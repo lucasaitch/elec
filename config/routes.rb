@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
   get 'new_listing' => 'listings#new'
 
-  get 'edit_listing' =>'listings#edit'
+
+  get 'edit_listing' =>'listings#edit', :as => :listing
+
 
   get 'delete_listing' => 'listings#delete'
 

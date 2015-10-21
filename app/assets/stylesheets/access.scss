@@ -12,22 +12,70 @@ h1 a:link, h1 a:visited, h1 a:hover, h1 a:active{
 	color: #000000;
 }
 
+
+.headcenter {
+  
+  text-align: center;
+  padding: 0px 240px 0px 0px;
+
+  
+ 
+}
+.headright  {
+  
+    text-align: right ;
+    padding-right: 10px;
+   padding-top: 0px;
+}
+
+.headleft  {
+  
+    float: left ;
+ 
+}
+
+
+
+.center {
+  
+  text-align: center;
+
+
+  
+ 
+}
+.right  {
+  
+    text-align: right ;
+   
+}
+
+.left  {
+  
+    text-allign: left ;
+ 
+}
+
 h1 small a:link, h1 small a:visited, h1 small a:hover, h1 small a:active {
 	color: #808080;
+	float: left;
+  margin-left: 220px;
 }
 
 .notice {
 	text-align: center;
 	color: red;
+	
 }
 
 .page-header {
-	background: #EFEFB6;
-	text-align: center;
-	border-bottom: 1px solid #808080;
-	margin: 0px 0px 20px;
-	padding: 32px 0 5px;
+  
+	border-bottom: 1px blue solid;
+	padding: 0px 5px 15px 5px;
+
+  
 }
+
 
 /* To format homepage buttons */
 .homepage-button {

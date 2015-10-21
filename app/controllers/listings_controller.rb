@@ -39,11 +39,21 @@ class ListingsController < ApplicationController
     end
   end
 
+
+
   def edit
+     @listing = Listing.find(params[:id])
+   
   end
 
   def delete
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    redirect_to :action => 'index'
+    
+    
   end
+
 
   def show_user
     @user_listings = Listing.newest_first.where('owner_id' => session[:user_id])
