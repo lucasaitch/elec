@@ -12,11 +12,11 @@
 !/log/.keep
 /tmp
 
-<<<<<<< HEAD
+
 # Ignore the default SQLite database and schema.
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /db/schema.rb
 =======
 
->>>>>>> 4f2e54c338c0503f87ff744a516620b615a45fd6
+
