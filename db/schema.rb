@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018105515) do
+ActiveRecord::Schema.define(version: 20151021114246) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",               limit: 50, null: false
@@ -54,6 +54,26 @@ ActiveRecord::Schema.define(version: 20151018105515) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_degrees", force: :cascade do |t|
+    t.integer  "degree_id",  null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_degrees", ["degree_id"], name: "index_user_degrees_on_degree_id"
+  add_index "user_degrees", ["user_id"], name: "index_user_degrees_on_user_id"
+
+  create_table "user_unit_of_studies", force: :cascade do |t|
+    t.integer  "unit_of_study_id", null: false
+    t.integer  "user_id",          null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "user_unit_of_studies", ["unit_of_study_id"], name: "index_user_unit_of_studies_on_unit_of_study_id"
+  add_index "user_unit_of_studies", ["user_id"], name: "index_user_unit_of_studies_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",          limit: 30, null: false
     t.string   "middle_name",         limit: 30
@@ -77,7 +97,7 @@ ActiveRecord::Schema.define(version: 20151018105515) do
 
   add_index "users_degrees", ["user_id", "degree_id"], name: "index_users_degrees_on_user_id_and_degree_id"
 
-  create_table "users_unit_of_studies", force: :cascade do |t|
+  create_table "users_unit_of_studies", id: false, force: :cascade do |t|
     t.integer "user_id",          null: false
     t.integer "unit_of_study_id", null: false
   end

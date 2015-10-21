@@ -4,12 +4,12 @@ class User < ActiveRecord::Base
   has_many :listings, :foreign_key => "owner_id"
 
   #has_many through relationship is easier to access through forms than HABTM
-  has_many :users_unit_of_studies
-  has_many :unit_of_studies, :through => :users_unit_of_studies
+  has_many :user_unit_of_studies
+  has_many :unit_of_studies, :through => :user_unit_of_studies
 
 
-  has_many :users_degrees
-  has_many :degrees, :through => :users_degrees
+  has_many :user_degrees
+  has_many :degrees, :through => :user_degrees
 
 
   accepts_nested_attributes_for :unit_of_studies, allow_destroy: true
