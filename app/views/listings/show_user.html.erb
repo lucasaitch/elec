@@ -12,7 +12,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Classified Listings", {:action => 'index'} %></li>
+        <li class="<%= 'active' if current_page?(listings_path)"%>><%= link_to "Classified Listings", {:action => 'index'} %></li>
         <span class="sr-only"></span>
         <li><%= link_to "My Listings", {:action => 'show_user'} %></li>
       </ul>
