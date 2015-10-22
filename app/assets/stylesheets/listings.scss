@@ -5,8 +5,19 @@
 /* Additional CSS file
 Built by David Stringfield for ELEC3609
 */
-.search-input {
-	width: inherit;
+.page-header {
+	height: 132px;
+}
+
+.headright {
+	padding-right: 0 !important;
+	margin-right: 0 !important;
+	float: right;
+}
+
+.navbar {
+	border: none;
+	background-color: #FFFFFF;
 }
 
 .listing-image {
@@ -16,8 +27,6 @@ Built by David Stringfield for ELEC3609
 
 .panel-column {
 	min-height: 200px;
-
-
 }
 
 .listing-info{
@@ -26,20 +35,18 @@ Built by David Stringfield for ELEC3609
 
 .listing-bottom{
 	position: absolute;
-	    bottom: 0;
-	    right: 0;
-
+    bottom: 0;
+    right: 0;
 }
-
-
 
 .panel-body-listing{
 
 }
-/*.container-fluid {
+.page-container {
 	margin: 0 auto;
-	width: 70%;
-} WHY? */
+	width: 40%;
+	clear: both;
+} 
 
 .header-button, .header-button:visited {
 	position: relative;
@@ -75,36 +82,9 @@ Built by David Stringfield for ELEC3609
 	background-color: #71c4d8;
 }
 
-/*.page-header > .pull-right {
-	bottom: 38px;
-	right: 20px;
-    position: relative;
-}*/
-
-th.listing {
-	padding-bottom: 5px;
-}
-
-table.listing {
-	width: 90%;
-	margin: 0 auto;
-}
-
-td.listing {
-	padding: 4px;
-}
-
-tr.listing:nth-child(2) {
-	border-top: 1px solid;
-}
-
-tr.listing:nth-child(even) {
-	background-color: #EBEBEB;
-}
-
 /*Additional CSS for small format screens*/
 @media (max-width: 767px) {
-    .container-fluid {
+    .page-container {
      	padding: 0;
      	margin: 0 10px;
      	width: 100%;
@@ -113,7 +93,7 @@ tr.listing:nth-child(even) {
 
 .new-listing {
 	margin: 0 auto;
-	width: 100%;
+	width: 80%;
 }
 
 /*Layout for new listing*/

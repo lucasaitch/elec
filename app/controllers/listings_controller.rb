@@ -21,6 +21,7 @@ class ListingsController < ApplicationController
 
   def new
     @listing = Listing.new
+    @session_user = User.find(session[:user_id])
   end
 
   def create
@@ -62,6 +63,7 @@ class ListingsController < ApplicationController
 
   def edit
      @listing = Listing.find(params[:id])
+     @session_user = User.find(session[:user_id])
 
   end
 

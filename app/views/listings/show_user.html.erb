@@ -1,60 +1,62 @@
-<div class="container">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to "UniLife", {:action => 'index'}, :class => "navbar-brand" %>
+<div class="page-header">
+  <h1>
+    <div class="headleft col-xs-6 col-md-4">
+      <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'} %>
+      <br>
+      <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
     </div>
+  </h1>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Classified Listings", {:action => 'index'} %></li>
-        <span class="sr-only"></span>
-        <li><%= link_to "My Listings", {:action => 'show_user'} %></li>
-      </ul>
+  <div class="headright col-xs-12 col-md-8">
+    <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to "UniLife", {:action => 'index'}, :class => "navbar-brand" %>
+          </div>
 
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Classified Listings", {:action => 'index'} %></li>
+              <span class="sr-only"></span>
+              <li><%= link_to "My Listings", {:action => 'show_user'} %></li>
+            </ul>
 
-      <%= form_tag(listings_path, :method => "get", class: "navbar-form navbar-left", role: "search") do %>
-      <div class="form-group">
-    <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search Classifieds" %>
-  </div>
-    <%= submit_tag("Search", class: "btn btn-default")  %>
-  <% end %>
+            <%= form_tag(listings_path, :method => "get", class: "navbar-form navbar-left", role: "search") do %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search Classifieds" %>
+            </div>
+            <%= submit_tag("Search", class: "btn btn-default")  %>
+            <% end %>
 
-
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-          role="button" aria-expanded="false">
-          <%="Welcome, " + @session_user.first_name + " " + @session_user.last_name%>
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= link_to("View Profile", {:controller => 'users', :action => 'show'}) %></li>
-            <li class="divider"></li>
-            <li><%= link_to("Log Out", {:controller => 'access', :action => 'logout'}) %></li>
-            <li class="divider"></li>
-          </ul>
-        </li>
-
-      </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">
+                <%="Welcome, " + @session_user.first_name + " " + @session_user.last_name%>
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to("View Profile", {:controller => 'users', :action => 'show'}) %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to("Log Out", {:controller => 'access', :action => 'logout'}) %></li>
+                  <li class="divider"></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
   </div>
-</nav>
-</div>
 </div>
 
 <div class="container">
-  <table class="listing" summary="Listing list">
-    <tr class="header">
-
-    </tr>
-
-  </table>
 
   <div class="container">
     <div class="well listing-well">
