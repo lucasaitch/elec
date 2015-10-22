@@ -2,21 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* Additional CSS file 
+/* Additional CSS file
 Built by David Stringfield for ELEC3609
 */
 .search-input {
 	width: inherit;
 }
 
-.container-fluid {
+/*.container-fluid {
 	margin: 0 auto;
 	width: 70%;
-}
+} WHY? */
 
 .header-button, .header-button:visited {
 	position: relative;
   	background-color: #F5F5D3;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.avatar-small {
+	width: 40px;
+	height: 40px;
+	vertical-align: middle;
 }
 
 .photo {
@@ -25,7 +37,7 @@ Built by David Stringfield for ELEC3609
 	border: 1px solid #808080;
 }
 
-.new-listing-button, .newlisteing-button:visited {
+.new-listing-button, .newlisting-button:visited {
 	margin: 0 auto;
 	margin-bottom: 20px;
 	background-color: #5DBCD2;
@@ -36,11 +48,11 @@ Built by David Stringfield for ELEC3609
 	background-color: #71c4d8;
 }
 
-.page-header > .pull-right {
+/*.page-header > .pull-right {
 	bottom: 38px;
 	right: 20px;
     position: relative;
-}
+}*/
 
 th.listing {
 	padding-bottom: 5px;

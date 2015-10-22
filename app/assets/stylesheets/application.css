@@ -13,6 +13,6 @@
  *= require bootstrap
  *= require access
  *= require listings
- *= require user_profile
- *= requrie_tree .
+ * require user_profile
+ * require tree .
  */
