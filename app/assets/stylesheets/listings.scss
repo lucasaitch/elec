@@ -14,9 +14,9 @@ Built by David Stringfield for ELEC3609
 	max-height: 200px;
 }
 
-.panel-listing {
-	min-height: 300px;
-	height: auto;
+.panel-column {
+	min-height: 200px;
+
 
 }
 
@@ -25,8 +25,13 @@ Built by David Stringfield for ELEC3609
 }
 
 .listing-bottom{
+	position: absolute;
+	    bottom: 0;
+	    right: 0;
 
 }
+
+
 
 .panel-body-listing{
 
