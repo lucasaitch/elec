@@ -1,27 +1,49 @@
 <div class="page-header">
   <h1>
     <div class="headleft">
-      <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
-      <br>
-      <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
-    </div>
-    <br>
-     
-    <div class="headright">    
-     <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
-    </div>
+      
+    <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
+    
 
-    <div class="headcenter">
-      <h4>
-      <%= form_tag listings_path, :method => "get" do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag("search")  %>
-      <% end %>
-      </h4>
-    </div>  
-  </h1>
+    <br>
+    
+    <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
+    
+   
+
 </div>
 
+ <div class="headright">
+    
+   <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
+  </div>
+  <div class="headcenter">
+ <h3>  
+
+    <%= form_tag listings_path, :method => "get" do %>
+
+  <%= text_field_tag :search, params[:search]   %>
+  
+  <%= submit_tag("search")  %>
+<% end %>
+ <h3>
+    </div>
+    </h1>
+  </div>
+  
+   <div class="catcenter">
+      
+    <%= link_to image_tag('medium/listings.png', :size => "237x83"), {:action => 'index'}  %>
+     <%= link_to image_tag('medium/groups.png', :size => "237x83"), {:action => 'index'}  %>
+      <%= link_to image_tag('medium/categories.png', :size => "237x83"), {:action => 'index'}  %>
+       <%= link_to image_tag('medium/createlisting.png', :size => "237x83"), {:action => 'new'}  %>
+
+  
+    
+    
+   
+
+</div>
 
 <div class="container-fluid">
   <h2>Create Listing</h2>
