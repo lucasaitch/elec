@@ -54,7 +54,6 @@
 
             <div class="panel-heading">
               <div class="container-fluid">
-
                 <div class="column-xs-6 text-left" >
                   <%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%>
                 </div>
@@ -62,8 +61,8 @@
                   <h4><%=number_to_currency(listing.price, :unit => "$")%></h4>
                 </div>
               </div>
-
             </div>
+
 
             <div class="panel-body">
               <div class="container-fluid">
@@ -95,10 +94,10 @@
 
 
             </div>
-          </div>
-        </div>
+
         <% end %>
       </div>
+    </div>
 
 
 
