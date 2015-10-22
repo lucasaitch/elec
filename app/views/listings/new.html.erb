@@ -1,26 +1,50 @@
-<%= link_to("Head on back", {:action => 'index'}, :class => 'back-link') %>
+<div class="page-header">
+  <h1>
+    <div class="headleft">
+      <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
+      <br>
+      <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
+    </div>
+    <br>
+     
+    <div class="headright">    
+     <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
+    </div>
 
-<div class="listings new">
+    <div class="headcenter">
+      <h4>
+      <%= form_tag listings_path, :method => "get" do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag("search")  %>
+      <% end %>
+      </h4>
+    </div>  
+  </h1>
+</div>
+
+
+<div class="container-fluid">
   <h2>Create Listing</h2>
 
   <%= form_for(:listing, :url => {:action => 'create'}) do |f| %>
 
-  <table summary="Listing form fields">
+  <table class="new-listing" summary="Listing form fields">
     <tr>
-      <th>Name</th>
-      <td><%= f.text_field(:name) %></td>
+      <th class="col-xs-6 col-md-4">Name</th>
+      <td class="col-xs-12 col-md-8"><%= f.text_field(:name, class: "input-group form-control") %></td>
     </tr>
     <tr>
-      <th>Description</th>
-      <td><%= f.text_field(:description) %></td>
+      <th class="col-xs-6 col-md-4">Description</th>
+      <td class="col-xs-12 col-md-8"><%= f.text_field(:description, class: "input-group form-control") %></td>
     </tr>
     <tr>
-      <th>Price</th>
-      <td><%= f.text_field(:price) %></td>
+      <th class="col-xs-6 col-md-4">Price</th>
+      <td class="col-xs-12 col-md-8"><%= f.text_field(:price, class: "input-group form-control") %></td>
     </tr>
-      <tr><th> <%= f.label :avatar, class: 'col-sm-2 control-label'  %></th>
-          <td> <%= f.file_field :avatar %></td>
-        </tr>
+    <tr>
+      <th class="col-xs-6 col-md-4"><%= f.label :avatar, class: 'control-label'  %></th>
+      <td class="col-xs-12 col-md-8"> <%= f.file_field :avatar %></td>
+    </tr>
 
   </table>
 
@@ -29,5 +53,8 @@
   </div>
 
   <% end %>
+  <hr class="faded"/>
+
+  <%= link_to("Head on back", {:action => 'index'}, :class => 'back-link') %>
 
 </div>
