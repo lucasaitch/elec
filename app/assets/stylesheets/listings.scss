@@ -5,10 +5,13 @@
 /* Additional CSS file 
 Built by David Stringfield for ELEC3609
 */
+.search-input {
+	width: inherit;
+}
 
 .container-fluid {
 	margin: 0 auto;
-	width: 60%;
+	width: 70%;
 }
 
 .header-button, .header-button:visited {
@@ -25,11 +28,12 @@ Built by David Stringfield for ELEC3609
 .new-listing-button, .newlisteing-button:visited {
 	margin: 0 auto;
 	margin-bottom: 20px;
-	background-color: #F5F5D3;
+	background-color: #5DBCD2;
+	font-weight: bold;
 }
 
 .header-button:hover, .new-listing-button:hover {
-	background-color: #F9F9E5;
+	background-color: #71c4d8;
 }
 
 .page-header > .pull-right {
@@ -38,9 +42,25 @@ Built by David Stringfield for ELEC3609
     position: relative;
 }
 
+th.listing {
+	padding-bottom: 5px;
+}
+
 table.listing {
 	width: 90%;
-	float: right;
+	margin: 0 auto;
+}
+
+td.listing {
+	padding: 4px;
+}
+
+tr.listing:nth-child(2) {
+	border-top: 1px solid;
+}
+
+tr.listing:nth-child(even) {
+	background-color: #EBEBEB;
 }
 
 /*Additional CSS for small format screens*/
