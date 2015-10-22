@@ -1,79 +1,64 @@
 <div class="page-header">
   <h1>
-    <div class="headleft">
-      
-    <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
-    
-
-    <br>
-    
-    <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
-    
-   
-
-</div>
-
- <div class="headright">
-    
-   <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
-  </div>
-  <div class="headcenter">
- <h3>  
-
-    <%= form_tag listings_path, :method => "get" do %>
-
-  <%= text_field_tag :search, params[:search]   %>
-  
-  <%= submit_tag("search")  %>
-<% end %>
- <h3>
+    <div class="headleft">    
+      <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
+      <br>
+      <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
     </div>
-    </h1>
-  </div>
-  
-   <div class="catcenter">
-      
-    <%= link_to image_tag('medium/listings.png', :size => "237x83"), {:action => 'index'}  %>
-     <%= link_to image_tag('medium/groups.png', :size => "237x83"), {:action => 'index'}  %>
-      <%= link_to image_tag('medium/categories.png', :size => "237x83"), {:action => 'index'}  %>
-       <%= link_to image_tag('medium/createlisting.png', :size => "237x83"), {:action => 'new'}  %>
 
-  
-    
-    
-   
-
+    <div class="headright">
+      <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
+    </div>
+    <div class="headcenter">
+      <h3>  
+        <%= form_tag listings_path, :method => "get" do %>
+        <%= text_field_tag :search, params[:search]   %>
+        <%= submit_tag("search")  %>
+        <% end %>
+      <h3>
+    </div>
+  </h1>
 </div>
+  
+<div class="catcenter">  
+  <%= link_to image_tag('medium/listings.png', :size => "237x83"), {:action => 'index'}  %>
+  <%= link_to image_tag('medium/groups.png', :size => "237x83"), {:action => 'index'}  %>
+  <%= link_to image_tag('medium/categories.png', :size => "237x83"), {:action => 'index'}  %>
+  <%= link_to image_tag('medium/createlisting.png', :size => "237x83"), {:action => 'new'}  %>
+</div>
+
 
 <div class="container-fluid">
-      <h2>Edit Listing</h2>
+  <h2>Edit Listing</h2>
 
   <%= form_for(:listing, :url => {:action => 'update', :id => @listing.id}) do |f| %>
 
-  <table summary="Listing form fields">
-    <tr>
-      <th>Name</Name></th>
-      <td><%= f.text_field(:name) %></td>
-    </tr>
-    <tr>
-      <th>Description</th>
-      <td><%= f.text_field(:description) %></td>
-    </tr>
-    <tr>
-      <th>Price</th>
-      <td><%= f.text_field(:price) %></td>
-    </tr>
-      <tr><th> <%= f.label :avatar, class: 'col-sm-2 control-label'  %></th>
-          <td> <%= f.file_field :avatar %></td>
-        </tr>
+  <div class="new-listing" summary="Listing form fields">
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Name</div>
+      <div class="col-xs-12 col-md-8"><%= f.text_field(:name, class: "input-group form-control") %></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Description</div>
+      <div class="col-xs-12 col-md-8"><%= f.text_field(:description, class: "input-group form-control") %></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Price</div>
+      <div class="col-xs-12 col-md-8"><%= f.text_field(:price, class: "input-group form-control") %></div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-4"> <%= f.label :avatar %></div>
+      <div class="col-xs-12 col-md-8"> <%= f.file_field :avatar %></div>
+    </div>
+  </div>
 
-  </table>
+  <br />
 
   <div>
-    <%= submit_tag("Edit Listing") %>
+    <%= submit_tag "Edit Listing", class: "btn btn-default new-listing-button" %>
   </div>
 
   <% end %>
 
-
+  <hr class="faded" />
 </div>
