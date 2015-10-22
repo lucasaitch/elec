@@ -1,5 +1,0 @@
-.nested-fields.user-unit-of-study-fields
-  #unit_of_study_from_list
-    = f.association :unit_of_study, :collection => UnitOfStudy.all(:order => 'name'), :prompt => 'Choose an existing unit_of_study'
-  = link_to_add_association 'or create a new unit_of_study', f, :unit_of_study
-  = link_to_remove_association "remove unit_of_study", f
