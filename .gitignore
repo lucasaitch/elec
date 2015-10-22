@@ -11,5 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
-
-
+# all avatars
+/public/system/users/avatars
