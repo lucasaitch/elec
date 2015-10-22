@@ -14,7 +14,7 @@
 
 # all avatars
 /public/system/users/avatars
-
+/public/system/listings/avatars
 
 # Ignore the default SQLite database and schema.
 /db/*.sqlite3

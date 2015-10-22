@@ -1,26 +1,26 @@
 Rails.application.routes.draw do
 
+#redirects to login if not logged in
+  root "listings#index"
+
   get 'users/new'
 
   get 'users/create'
 
-  get 'users/edit'
-  get 'delete_user' => 'users#destroy'
+  get 'edit_profile' => 'users#edit'
 
-  get 'users/show'
+  get 'profile' => 'users#show'
 
-  resources :user_profiles
+  get 'delete_profile' => 'users#destroy'
+
   resources :users, only: [:edit, :update, :destroy], path_names: {edit: 'edit'}
-
-  get 'profile' => 'user_profiles#show'
-
-  get 'edit_profile' => 'user_profiles#edit'
 
   get 'new_user' => 'access#register'
 
   post 'new_user' => 'access#register'
 
-  root "access#index"
+
+
 
   get 'login' => 'access#login'
 

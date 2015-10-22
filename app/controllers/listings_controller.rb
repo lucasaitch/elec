@@ -1,4 +1,7 @@
 class ListingsController < ApplicationController
+  before_action :confirm_logged_in
+
+
 
 
   def index
@@ -43,8 +46,8 @@ class ListingsController < ApplicationController
    @session_user = User.find(session[:user_id])
  @listing = Listing.find(params[:id])
      @listing.update_attributes(listing_params)
-    
-   
+
+
 
     ## Save the object
     if @session_user.listings << @listing
@@ -60,17 +63,17 @@ class ListingsController < ApplicationController
 
   def edit
      @listing = Listing.find(params[:id])
-   
+
   end
-  
-  
+
+
 
   def delete
     @listing = Listing.find(params[:id])
     @listing.destroy
     redirect_to :action => 'index'
-    
-    
+
+
   end
 
 

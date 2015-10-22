@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :confirm_logged_in
+
   def new
     @user = User.new
     @user_unit_of_study = @user.user_unit_of_studies.build
@@ -33,6 +35,8 @@ class UsersController < ApplicationController
   def destroy
     User.find(session[:user_id]).destroy
     flash[:success] = "User deleted"
+    session[:user_id] = nil
+    session[:email] = nil
     redirect_to "/"
   end
 
