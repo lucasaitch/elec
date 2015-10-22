@@ -40,6 +40,10 @@ Rails.application.routes.draw do
   get 'delete_listing' => 'listings#delete'
 
   get 'user_listings' => 'listings#show_user'
+  
+  get 'categories' => 'categories#index'
+  
+  get 'show_category' => 'categories#show'
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
