@@ -1,39 +1,65 @@
+<div class="page-header">
+  <h1>
+    <div class="headleft">
+      <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'listings_index'}  %>
+      <br>
+      <small><%= link_to "Where teams come true", {:action => 'listings/index'} %></small>
+    </div>
+    <br>
+     
+    <div class="headright">    
+     <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
+    </div>
+
+    <div class="headcenter">
+      <h4>
+      <%= form_tag listings_path, :method => "get" do %>
+      <%= text_field_tag :search, params[:search]   %>
+      <%= submit_tag("search")  %>
+      <% end %>
+      </h4>
+    </div>  
+  </h1>
+</div>
+
 <% if !flash[:notice].blank? %>
   <div class="notice">
       <%= flash[:notice] %>
   </div>
 <% end %>
 
-<div class="user-profile">
+<div class="container-fluid">
+
   <h2>User Profile</h2>
 
-  <%= link_to("Edit your profile", {:action => 'edit'}, :class => 'profile-edit') %>
-  <%= link_to "Manage your listings", 'listings/show_user' %>
+  <div class="user-info" summary="User Information">
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Name</div>
+      <div class="col-xs-12 col-md-8"><%=@name%></div>
+    </div>
 
-  <table class="user-info" summary="User Information">
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Email Address</div>
+      <div class="col-xs-12 col-md-8"><%=@session_user.email%></div>
+    </div>
 
-    <tr class="header">
-      <th>Name</th>
-      <th>Email address</th>
-      <th>Birth Date</th>
-      <th>Profile Picture</th>
-      <th>Enrolled units of study</th>
-    </tr>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Birth Date</div>
+      <div class="col-xs-12 col-md-8"><%=@session_user.birth_date%></div>
+    </div>
 
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Profile Picture</div>
+      <div class="col-xs-12 col-md-8"><%= image_tag(@avatar)%></div>
+    </div>
+  </div>
 
+  <br />
+  
+  <%= link_to("Edit your profile", {:action => 'edit'}, :class => 'btn btn-default edit-profile-button') %>
+  <%= link_to "Manage your listings", 'listings/show_user', :class =>  'btn btn-default edit-profile-button' %>
 
-    <tr>
-      <td><%=@name%></td>
-      <td><%=@session_user.email%></td>
-      <td><%=@session_user.birth_date%></td>
-      <td><%= image_tag(@avatar)%></td>
-
-      <% #@units.each do |unit| %>
-        <td><%#=unit.name%></td>
-      <%# end %>
-    </tr>
-
-  </table>
+  <hr class="faded" />
 
   <%= link_to("Log Out", {:controller => 'access', :action => 'logout'}) %>
 
