@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   get 'users/create'
 
   get 'users/edit'
-
+  get 'delete_user' => 'users#destroy'
 
   get 'users/show'
 
   resources :user_profiles
-  resources :users, only: [:edit, :update], path_names: {edit: 'edit'}
+  resources :users, only: [:edit, :update, :destroy], path_names: {edit: 'edit'}
 
   get 'profile' => 'user_profiles#show'
 
