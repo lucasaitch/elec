@@ -47,6 +47,17 @@ display: inline;
   display: inline;
 }
 
+.catcenter {
+  
+  text-align: center;
+   padding-right: 10px;
+   padding-left: 10px;
+  
+
+
+  
+ 
+}
 
 
 .center {
@@ -54,7 +65,7 @@ display: inline;
   absolute: center;
    padding-right: 10px;
    padding-left: 10px;
-   display: inline;
+  
 
 
   
@@ -87,10 +98,10 @@ h1 small a:link, h1 small a:visited, h1 small a:hover, h1 small a:active {
 }
 
 .page-header {
-  border-bottom-width: 3px;
+  border-bottom-width: 6px;
   border-bottom-style: 3px solid;
-	border-bottom-color:  #0099FF;
-	padding: 0px 0px 1px 5px;
+	border-bottom-color: #006666;
+	padding: 0px 0px 0px 0px;
 	
 
   

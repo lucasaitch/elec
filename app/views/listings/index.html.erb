@@ -26,20 +26,24 @@
   
   <%= submit_tag("search")  %>
 <% end %>
- 
-
  <h3>
-   
-    
     </div>
-    
-
-  
-
-   
-  
     </h1>
   </div>
+  
+   <div class="catcenter">
+      
+    <%= link_to image_tag('medium/listings.png', :size => "237x83"), {:action => 'index'}  %>
+     <%= link_to image_tag('medium/groups.png', :size => "237x83"), {:action => 'index'}  %>
+      <%= link_to image_tag('medium/categories.png', :size => "237x83"), {:action => 'index'}  %>
+       <%= link_to image_tag('medium/createlisting.png', :size => "237x83"), {:action => 'new'}  %>
+
+  
+    
+    
+   
+
+</div>
   
   <div class="pull-right">
     <%= link_to "Log Out", {:controller => 'access', :action => 'logout'}, class: 'btn btn-default header-button' %>
@@ -62,7 +66,7 @@
       
       
 
-      <%= link_to "Add new listing", {:action => 'new'}, :class => 'btn btn-default new-listing-button' %>
+     
 
       <table class="listing" summary="Listing list" width="inherit">
         <tr class="header">
