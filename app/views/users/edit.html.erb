@@ -1,0 +1,23 @@
+<h1>User#edit</h1>
+<p>Find me in app/views/user/edit.html.erb</p>
+
+<% form_for (@session_user) do |session_user_form| %>
+
+  <%=# session_user_form.error_messages %>
+
+  <%= session_user_form.label :first_name, "First Name" %>
+  <%= session_user_form.text_field :first_name %>
+
+
+<% session_user_form.fields_for (@units) do |unit_of_study_form| %>
+
+  <%= unit_of_study_form.label :name, "Unit of Study name" %>
+  <%= unit_of_study_form.text_field :name %>
+
+<% end %>
+
+  <%= session_user_form.submit 'Edit' %>
+
+
+<% end %>
+

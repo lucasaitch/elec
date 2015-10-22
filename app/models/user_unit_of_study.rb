@@ -1,6 +1,6 @@
 class UserUnitOfStudy < ActiveRecord::Base
   #validations
-  validates_presence_of :team, :user
+  validates_presence_of :unit_of_study, :user
 
   #relations
   belongs_to :user

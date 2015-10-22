@@ -1,5 +1,7 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def new
+    @user = User.new
+    @user_unit_of_study = @user.user_unit_of_studies.build
   end
 
   def create
@@ -9,7 +11,7 @@ class UserController < ApplicationController
     @session_user = User.find(session[:user_id])
       @avatar = @session_user.avatar.url(:thumb)
       @name = @session_user.first_name + " " + @session_user.last_name
-      @units = UnitOfStudy.includes(:users).where('users.id' => session[:user_id])
+      @units = @session_user.unit_of_studies
   end
 
   def show
