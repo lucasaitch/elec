@@ -12,7 +12,6 @@ class ListingsController < ApplicationController
     else
     @posts = Listing.all.order('created_at DESC')
     end
-
      @avatar = @session_user.avatar.url(:thumb)
   end
 

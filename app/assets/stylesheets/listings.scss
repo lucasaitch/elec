@@ -20,6 +20,28 @@ Built by David Stringfield for ELEC3609
 	background-color: #FFFFFF;
 }
 
+.listing-image {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.panel-column {
+	min-height: 200px;
+}
+
+.listing-info{
+
+}
+
+.listing-bottom{
+	position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.panel-body-listing{
+
+}
 .page-container {
 	margin: 0 auto;
 	width: 40%;
@@ -58,31 +80,6 @@ Built by David Stringfield for ELEC3609
 
 .header-button:hover, .new-listing-button:hover {
 	background-color: #71c4d8;
-}
-
-th.listing {
-	padding-bottom: 5px;
-}
-
-table.listing {
-	width: 90%;
-	margin: 0 auto;
-}
-
-td.listing {
-	padding: 4px;
-}
-
-tr.listing:nth-child(2) {
-	border-top: 1px solid;
-}
-
-tr.listing:nth-child(even) {
-	background-color: #EBEBEB;
-}
-
-.row div:first-child {
-	font-weight: bold;
 }
 
 /*Additional CSS for small format screens*/

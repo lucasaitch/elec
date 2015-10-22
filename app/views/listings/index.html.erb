@@ -57,46 +57,66 @@
   </div>
 </div>
 
+
 <% if !flash[:notice].blank? %>
-  <div class="notice">
-      <%= flash[:notice] %>
-  </div>
+<div class="notice">
+  <%= flash[:notice] %>
+</div>
 <% end %>
 
-<div class="container-fluid page-container">
-  <div class ="photo avatar-small">
-    <%= image_tag(@avatar)%>
-  </div>
-  <p><%= puts @avatar %></p>
-  <div class="listings index">
-    <h2>Listings</h2>
+    <div class="container">
+      <div class="well listing-well">
+    <h2 class="text-center"> Classified listings </h2>
+    </div>
+      <div class="row">
+        <% @listings.each do |listing| %>
+        <div class="col-md-6">
+          <div class="panel panel-default panel-listing">
 
-    <%= link_to("Create new listing", {:action => 'new'}, :class => 'btn btn-default new-listing-button') %>
+            <div class="panel-heading">
+              <div class="container-fluid">
+                <div class="column-xs-6 text-left" >
+                  <p><%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%><p>
+                </div>
+                <div class="column-xs-6 text-left">
+                  <h4><%=number_to_currency(listing.price, :unit => "$")%></h4>
+                </div>
+              </div>
+            </div>
 
-    <table class="listing" summary="Listing list" width="inherit">
-      <tr class="header listing">
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Posted</th>
-      </tr>
 
-      <% @listings.each do |listing| %>
-      <tr class= "listing">
-        <td class="center listing"><%= listing.name %></td>
-        <td class="center listing"><%= listing.description %></td>
-        <td class="center listing"><%= listing.price %></td>
-        <td class="center listing"><%= listing.created_at %></td>
-        <td class="actions">
-          <%= link_to "Show", {:action => 'show', :id => listing.id}, :class => 'action show'   %>
+            <div class="panel-body panel-body-listing">
+              <div class="container-fluid">
 
-          <%= link_to "Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit' if listing.owner_id ==  session[:user_id] %>
-          <%= link_to  "Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete' if listing.owner_id ==  session[:user_id] %>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-    <br />
+                <div class="row">
+                  <div class="col-xs-5 panel-column">
+                    <%=image_tag(listing.avatar.url(:medium), class: "img-responsive")%>
+                  </div>
+
+                  <div class="col-xs-7 text-right panel-column">
+                    <p><%= listing.description %></p>
+                      <div class= "listing-bottom">
+                        <p><%="Listing updated " + time_ago_in_words(listing.created_at) + " ago  " %>
+
+                          <%= link_to("Edit  ", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
+
+                          <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%></p>
+                        </div>
+
+                  </div>
+                </div>
+
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+    </div>
+
     <hr class="faded"/>
   </div>
 </div>
