@@ -9,6 +9,19 @@ Built by David Stringfield for ELEC3609
 	width: inherit;
 }
 
+.listing-image {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+.panel-listing {
+	min-height: 300px;
+	height: auto;
+}
+
+.listing-info{
+	padding: 0px 10px;
+}
 /*.container-fluid {
 	margin: 0 auto;
 	width: 70%;

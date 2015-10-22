@@ -19,81 +19,90 @@
         <%= text_field_tag :search, params[:search]   %>
         <%= submit_tag("search")  %>
         <% end %>
-      <h3>
-    </div>
-  </h1>
-</div>
-
-  <div class="pull-right">
-    <%= link_to "Log Out", {:controller => 'access', :action => 'logout'}, class: 'btn btn-default header-button' %>
-  </div>
-
-<div class="catcenter">
-  <%= link_to image_tag('medium/listings.png', :size => "237x83"), {:action => 'index'}  %>
-  <%= link_to image_tag('medium/groups.png', :size => "237x83"), {:action => 'index'}  %>
-  <%= link_to image_tag('medium/categories.png', :size => "237x83"), {:action => 'index'}  %>
-  <%= link_to image_tag('medium/createlisting.png', :size => "237x83"), {:action => 'new'}  %>
-
-</div>
-
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-      <%= flash[:notice] %>
-  </div>
-<% end %>
-
-<div class="container">
-
-  <h2>Listings</h2>
-
-  <%= link_to("Add new listing", {:action => 'new'}, :class => 'action new') %>
-
-  <% @listings.each do |listing| %>
-
-  <div class="panel panel-default">
-    <div class="panel-heading"><%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%></div>
-    <div class="panel-body">
-    <div class="row">
-      <div class="col-xs-3">
-        <%=image_tag(@avatar)%>
+        <h3>
         </div>
+      </h1>
+    </div>
 
-      <div class="col-xs-9">
-        <table class="table table-striped table-hover ">
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Posted</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><%= listing.description %></td>
-            <td><%= listing.price %></td>
-            <td><%= listing.created_at %></td>
+    <div class="pull-right">
+      <%= link_to "Log Out", {:controller => 'access', :action => 'logout'}, class: 'btn btn-default header-button' %>
+    </div>
 
-              <td><%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%></td>
-              <td><%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="catcenter">
+      <%= link_to image_tag('medium/listings.png', :size => "237x83"), {:action => 'index'}  %>
+      <%= link_to image_tag('medium/groups.png', :size => "237x83"), {:action => 'index'}  %>
+      <%= link_to image_tag('medium/categories.png', :size => "237x83"), {:action => 'index'}  %>
+      <%= link_to image_tag('medium/createlisting.png', :size => "237x83"), {:action => 'new'}  %>
 
+    </div>
+
+    <% if !flash[:notice].blank? %>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
+    <% end %>
+
+    <h2>Listings</h2>
+
+    <%= link_to("Add new listing", {:action => 'new'}, :class => 'action new') %>
+
+    <div class="container">
+      <div class="row">
+        <% @listings.each do |listing| %>
+        <div class="col-md-6">
+          <div class="panel panel-default panel-listing">
+
+            <div class="panel-heading">
+              <div class="container-fluid">
+
+                <div class="column-xs-6 text-left" >
+                  <%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%>
+                </div>
+                <div class="column-xs-6 text-left">
+                  <h4><%=number_to_currency(listing.price, :unit => "$")%></h4>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="panel-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <%=image_tag(listing.avatar.url(:medium), class: "listing-image")%>
+                  </div>
+
+                  <div class="col-xs-9 text-right">
+                    <p><%= listing.description %></p>
+
+
+                    <div class = "listing-bottom text-right">
+                      <span class= "listing-info">
+                        <p><%="Listing updated " + time_ago_in_words(listing.created_at) + " ago" %>
+                        </span>
+                        <span class= "listing-info">
+                          <%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
+                        </span>
+                        <span class= "listing-info">
+                          <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%></p>
+                        </span>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <% end %>
       </div>
-    </div>
-    </div>
-  </div>
-<% end %>
-
-
-
-
-</div>
 
 
 
       <hr class="faded"/>
 
     </div>
-</div>
+  </div>
