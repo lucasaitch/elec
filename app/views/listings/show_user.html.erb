@@ -1,3 +1,4 @@
+<div class="container">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -12,7 +13,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="<%= 'active' if current_page?(listings_path)"%>><%= link_to "Classified Listings", {:action => 'index'} %></li>
+        <li><%= link_to "Classified Listings", {:action => 'index'} %></li>
         <span class="sr-only"></span>
         <li><%= link_to "My Listings", {:action => 'show_user'} %></li>
       </ul>
@@ -44,7 +45,8 @@
     </div>
   </div>
 </nav>
-
+</div>
+</div>
 
 <div class="container">
 
