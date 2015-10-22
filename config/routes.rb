@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'users/show'
 
   resources :user_profiles
-  resources :users, only: [:edit], path_names: {edit: 'edit'}
+  resources :users, only: [:edit, :update], path_names: {edit: 'edit'}
 
   get 'profile' => 'user_profiles#show'
 
