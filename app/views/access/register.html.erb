@@ -1,17 +1,19 @@
-<div class="page-header">
-    <h1>
-      <%= link_to "UniLife", {:action => 'index'} %>
-      <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
+
+
+  <h1>
+ <div class="login_logo">
+      <br>
+    <%= image_tag('medium/loginlogo.jpg')  %>
+    <br>
+
     </h1>
+
+<% if !flash[:notice].blank? %>
+    <div class="notice">
+      <%= flash[:notice] %>
+      <% flash[:notice] = nil %>
   </div>
-
-
-  <% if !flash[:notice].blank? %>
-      <div class="notice">
-        <%= flash[:notice] %>
-        <% flash[:notice] = nil %>
-    </div>
-  <% end %>
+<% end %>
 
   <div class="access register">
       <h2>Create Account</h2>

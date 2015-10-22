@@ -11,5 +11,15 @@
 /log/*
 !/log/.keep
 /tmp
+
 # all avatars
 /public/system/users/avatars
+
+
+# Ignore the default SQLite database and schema.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/db/schema.rb
+
+
+

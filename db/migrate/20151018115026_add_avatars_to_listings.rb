@@ -5,8 +5,7 @@ class AddAvatarsToListings < ActiveRecord::Migration
     end
   end
 
-    def self.down
+  def self.down
     drop_attached_file :listings, :avatar
   end
-
 end

@@ -1,10 +1,15 @@
 class ListingsController < ApplicationController
 
-  #layout false;
 
   def index
     @listings = Listing.newest_first
      @session_user = User.find(session[:user_id])
+    if params[:search]
+    @listings = Listing.search(params[:search]).order("created_at DESC")
+    else
+    @posts = Listing.all.order('created_at DESC')
+    end
+
      @avatar = @session_user.avatar.url(:thumb)
   end
 
@@ -34,11 +39,21 @@ class ListingsController < ApplicationController
     end
   end
 
+
+
   def edit
+     @listing = Listing.find(params[:id])
+   
   end
 
   def delete
+    @listing = Listing.find(params[:id])
+    @listing.destroy
+    redirect_to :action => 'index'
+    
+    
   end
+
 
   def show_user
     @user_listings = Listing.newest_first.where('owner_id' => session[:user_id])
