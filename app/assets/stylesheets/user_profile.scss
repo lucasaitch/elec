@@ -20,11 +20,11 @@
 .edit-profile-button, .edit-profile-button:visited {
 	margin: 0 auto;
 	margin-bottom: 10px;
-	background-color: #F5F5D3;
+	background-color: #5DBCD2;
 }
 
-.header-button:hover, .edit-profile-button:hover {
-	background-color: #F9F9E5;
+.edit-profile-button:hover {
+	background-color: #71c4d8;
 }
 
 @media (max-width: 767px) {
@@ -34,3 +34,4 @@
      	width: 100%;
     }
 }
+
