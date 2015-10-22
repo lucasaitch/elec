@@ -42,46 +42,57 @@
   </div>
 <% end %>
 
-<div class="container-fluid">
-    <div class ="photo">
-      <%= image_tag(@avatar)%>
-    </div>
-    <p> Print thing <%= puts @avatar %></p>
-    <div class="listings index">
-      <h2>Listings</h2>
+<div class="container">
 
+  <h2>Listings</h2>
 
+  <%= link_to("Add new listing", {:action => 'new'}, :class => 'action new') %>
 
+  <% @listings.each do |listing| %>
 
+  <div class="panel panel-default">
+    <div class="panel-heading"><%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%></div>
+    <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-3">
+        <%=image_tag(@avatar)%>
+        </div>
 
-      <table class="listing" summary="Listing list" width="inherit">
-        <tr class="header">
-          <th>Name</th>
-          <th>Description</th>
-          <th>Price</th>
-          <th>Posted</th>
+      <div class="col-xs-9">
+        <table class="table table-striped table-hover ">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Posted</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= listing.description %></td>
+            <td><%= listing.price %></td>
+            <td><%= listing.created_at %></td>
 
-        </tr>
-        <% @listings.each do |listing| %>
-        <tr>
-           <td class="center"><%= listing.name %></td>
-          <td class="center"><%= listing.description %></td>
-          <td class="center"><%= listing.price %></td>
-          <td class="center"><%= listing.created_at %></td>
-
-          <td class="actions">
-            <%= link_to "Show", {:action => 'show', :id => listing.id}, :class => 'action show'   %>
-
-            <%= link_to "Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit' if listing.owner_id ==  session[:user_id] %>
-            <%= link_to  "Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete' if listing.owner_id ==  session[:user_id] %>
-          </td>
-
-
-        </tr>
-        <% end %>
+              <td><%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%></td>
+              <td><%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%>
+            </td>
+          </tr>
+        </tbody>
       </table>
 
-      <br />
+      </div>
+    </div>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+</div>
+
+
+
       <hr class="faded"/>
 
     </div>
