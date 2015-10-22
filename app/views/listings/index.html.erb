@@ -1,6 +1,5 @@
 <div class="page-header">
- 
-<h1>
+  <h1>
     <div class="headleft">
       
     <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
@@ -13,33 +12,43 @@
    
 
 </div>
-   <br>
-   
-   <div class="headright">
+
+ <div class="headright">
     
    <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
   </div>
+  <div class="headcenter">
+ <h3>  
 
-    <div class="headcenter">
- <h4>
-   
     <%= form_tag listings_path, :method => "get" do %>
 
   <%= text_field_tag :search, params[:search]   %>
   
   <%= submit_tag("search")  %>
 <% end %>
- 
-
- <h4>
-  </div>
-  
+ <h3>
+    </div>
     </h1>
-
   </div>
   
+   <div class="catcenter">
+      
+    <%= link_to image_tag('medium/listings.png', :size => "237x83"), {:action => 'index'}  %>
+     <%= link_to image_tag('medium/groups.png', :size => "237x83"), {:action => 'index'}  %>
+      <%= link_to image_tag('medium/categories.png', :size => "237x83"), {:action => 'index'}  %>
+       <%= link_to image_tag('medium/createlisting.png', :size => "237x83"), {:action => 'new'}  %>
 
+  
+    
+    
+   
 
+</div>
+  
+  <div class="pull-right">
+    <%= link_to "Log Out", {:controller => 'access', :action => 'logout'}, class: 'btn btn-default header-button' %>
+  </div>
+</div>
 
 <% if !flash[:notice].blank? %>
   <div class="notice">
@@ -54,8 +63,10 @@
     <p> Print thing <%= puts @avatar %></p>
     <div class="listings index">
       <h2>Listings</h2>
+      
+      
 
-      <%= link_to "Add new listing", {:action => 'new'}, :class => 'btn btn-default new-listing-button' %>
+     
 
       <table class="listing" summary="Listing list" width="inherit">
         <tr class="header">
@@ -63,19 +74,23 @@
           <th>Description</th>
           <th>Price</th>
           <th>Posted</th>
+         
         </tr>
         <% @listings.each do |listing| %>
         <tr>
-          <td><%= listing.name %></td>
+           <td class="center"><%= listing.name %></td>
           <td class="center"><%= listing.description %></td>
           <td class="center"><%= listing.price %></td>
           <td class="center"><%= listing.created_at %></td>
+         
           <td class="actions">
-           <%= link_to "Show", {:action => 'show', :id => listing.id}, :class => 'action show'   %>
+            <%= link_to "Show", {:action => 'show', :id => listing.id}, :class => 'action show'   %>
           
             <%= link_to "Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit' if listing.owner_id ==  session[:user_id] %>
             <%= link_to  "Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete' if listing.owner_id ==  session[:user_id] %>
-
+          </td>
+          
+          
         </tr>
         <% end %>
       </table>
@@ -85,3 +100,7 @@
 
     </div>
 </div>
+
+
+
+
