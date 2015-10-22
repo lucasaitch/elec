@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/edit'
+
+
+  get 'users/show'
+
   resources :user_profiles
+  resources :users, only: [:edit, :update], path_names: {edit: 'edit'}
 
   get 'profile' => 'user_profiles#show'
 

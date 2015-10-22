@@ -1,11 +1,11 @@
 
-   
+
   <h1>
  <div class="login_logo">
       <br>
     <%= image_tag('medium/loginlogo.jpg')  %>
     <br>
-    
+
     </h1>
 
 <% if !flash[:notice].blank? %>
@@ -15,53 +15,47 @@
   </div>
 <% end %>
 
+  <div class="access register">
+      <h2>Create Account</h2>
 
+        <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
 
+            <table summary="Access form fields">
+            <tr>
+              <th><%= f.label(:first_name) %></th>
+              <td><%= f.text_field(:first_name, class: "input-group form-control") %></td>
+            </tr>
+            <tr>
+              <th><%= f.label(:middle_name) %></th>
+              <td><%= f.text_field(:middle_name, class: "input-group form-control") %></td>
+            </tr>
+            <tr>
+              <th><%= f.label(:last_name) %></th>
+              <td><%= f.text_field(:last_name, class: "input-group form-control") %></td>
+            </tr>
+            <tr>
+              <th><%= f.label(:birth_date) %></th>
+              <td><%= f.date_select(:birth_date, :order => [:day, :month, :year], class: "btn btn-default dropdown-toggle") %></td>
+            </tr>
+            <tr>
+              <th><%= f.label(:email) %></th>
+              <td><%= f.text_field(:email, class: "input-group form-control") %></td>
+            </tr>
+            <tr>
+              <th><%= f.label(:password) %></th>
+              <td><%= f.password_field(:password, class: "input-group form-control") %></td>
+            </tr>
+            <tr>
+              <th><%= f.label(:avatar) %></th>
+              <td><%= f.file_field :avatar %>
+          </tr>
+          </table>
 
-<div class="access register">
-  
-  <h2>Create Account</h2>
+            <div>
+              <%= submit_tag "Create Account", class: 'btn btn-default' %>
+            </div>
 
-  <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+              <% end %>
+              <%= link_to("Cancel", {:action => 'login'}, :class => 'back-link') %>
 
-  <table summary="Access form fields">
-    <tr>
-      <th><%= f.label(:first_name) %></th>
-      <td><%= f.text_field(:first_name, class: "input-group form-control") %></td>
-    </tr>
-    <tr>
-      <th><%= f.label(:middle_name) %></th>
-      <td><%= f.text_field(:middle_name, class: "input-group form-control") %></td>
-    </tr>
-    <tr>
-      <th><%= f.label(:last_name) %></th>
-      <td><%= f.text_field(:last_name, class: "input-group form-control") %></td>
-    </tr>
-    <tr>
-      <th><%= f.label(:birth_date) %></th>
-      <td><%= f.date_select(:birth_date, :order => [:day, :month, :year], class: "btn btn-default dropdown-toggle") %></td>
-    </tr>
-    <tr>
-      <th><%= f.label(:email) %></th>
-      <td><%= f.text_field(:email, class: "input-group form-control") %></td>
-    </tr>
-    <tr>
-      <th><%= f.label(:password) %></th>
-      <td><%= f.password_field(:password, class: "input-group form-control") %></td>
-    </tr>
-    <tr>
-      <th><%= f.label(:avatar) %></th>
-      <td><%= f.file_field :avatar %>
-    </tr>
-  </table>
-
-  <div>
-    <%= submit_tag "Create Account", class: 'btn btn-default' %>
-  </div>
-
-  <% end %>
-  <%= link_to("Cancel", {:action => 'login'}, :class => 'back-link') %>
-
-
-
-
+            </div>

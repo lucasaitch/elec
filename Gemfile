@@ -7,6 +7,8 @@ gem 'rails', '4.2.4'
 # paperclip for photo upload
 gem 'paperclip', '~> 4.1'
 
+#cocoon for nested forms
+gem 'cocoon'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
