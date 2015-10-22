@@ -66,6 +66,7 @@
 
             <div class="panel-body">
               <div class="container-fluid">
+
                 <div class="row">
                   <div class="col-xs-3">
                     <%=image_tag(listing.avatar.url(:medium), class: "listing-image")%>
@@ -73,27 +74,28 @@
 
                   <div class="col-xs-9 text-right">
                     <p><%= listing.description %></p>
+                  </div>
+                </div>
 
-
-                    <div class = "listing-bottom text-right">
+                <div class="row">
+                  <div class = "listing-bottom text-right">
+                    <span class= "listing-info">
+                      <p><%="Listing updated " + time_ago_in_words(listing.created_at) + " ago" %>
+                      </span>
                       <span class= "listing-info">
-                        <p><%="Listing updated " + time_ago_in_words(listing.created_at) + " ago" %>
-                        </span>
-                        <span class= "listing-info">
-                          <%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
-                        </span>
-                        <span class= "listing-info">
-                          <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%></p>
-                        </span>
-                      </div>
-                    </div>
+                        <%= link_to("Edit", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
+                      </span>
+                      <span class= "listing-info">
+                        <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%></p>
+                      </span>
                     </div>
                   </div>
+
                 </div>
               </div>
 
-
             </div>
+          </div>
 
         <% end %>
       </div>
@@ -101,7 +103,7 @@
 
 
 
-      <hr class="faded"/>
+    <hr class="faded"/>
 
-    </div>
   </div>
+</div>
