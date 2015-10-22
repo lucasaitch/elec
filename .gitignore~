@@ -12,10 +12,6 @@
 !/log/.keep
 /tmp
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 57099c795240e65ce3bd432f16eb49056ed5799f
 # Ignore the default SQLite database and schema.
 /db/*.sqlite3
 /db/*.sqlite3-journal
