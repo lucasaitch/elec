@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-
+    @listing = Listing.find(params[:id])
   end
 
   def new
@@ -89,7 +89,7 @@ class ListingsController < ApplicationController
       # same as using "params[:subject]" except that it
       # - raised an error if :subject is not present
       # - allows listed attributes to be mass-assigned
-      params.require(:listing).permit(:name, :description, :price, :avatar, :avatar_file_name)
+      params.require(:listing).permit(:name, :description, :price, :avatar, :avatar_file_name, :id)
     end
 
 end
