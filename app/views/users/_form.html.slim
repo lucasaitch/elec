@@ -1,0 +1,9 @@
+#degrees
+  = f.simple_fields_for :user_degrees do |user_degree|
+    = render 'user_degree_fields', :f => user_degree
+  = link_to_add_association 'add a degree', f, :user_degrees
+
+#unit_of_studies
+  = f.simple_fields_for :user_unit_of_studies do |user_unit_of_study|
+    = render 'user_unit_of_study_fields', :f => user_unit_of_study
+  = link_to_add_association 'add a unit of study', f, :user_unit_of_studies
