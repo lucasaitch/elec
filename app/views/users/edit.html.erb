@@ -1,7 +1,7 @@
 <%= render partial: "shares/header", locals: { session_user: @session_user } %>
 
 
-<div class="container-fluid">
+<div class="container-fluid page-container">
   <div><%= form_for(:user, :url => {:action => 'update'}) do |f| %>
 
     <%#= render 'shared/error_messages' %>
