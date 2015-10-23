@@ -3,8 +3,7 @@
     <div class="headleft col-xs-6 col-md-4">
       <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'} %>
       <br>
-      <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
-    </div>
+    </div> 
   </h1>
 
   <div class="headright col-xs-12 col-md-8">
@@ -61,60 +60,51 @@
   <div class="container">
     <div class="well listing-well">
   <h2 class="text-center"> Classified listings </h2>
-  </div>
-  <div class="row">
-  <% @user_listings.each do |listing| %>
-
-
-  <div class="col-md-6">
-    <div class="panel panel-default panel-listing">
-
-      <div class="panel-heading">
-        <div class="container-fluid">
-          <div class="column-xs-6 text-left" >
-            <p><%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%><p>
-          </div>
-          <div class="column-xs-6 text-left">
-            <h4><%=number_to_currency(listing.price, :unit => "$")%></h4>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="panel-body panel-body-listing">
-        <div class="container-fluid">
-
-          <div class="row">
-            <div class="col-xs-5 panel-column">
-              <%=image_tag(listing.avatar.url(:medium), class: "img-responsive")%>
-            </div>
-
-            <div class="col-xs-7 text-right panel-column">
-              <p><%= listing.description %></p>
-                <div class= "listing-bottom">
-                  <p><%="Listing updated " + time_ago_in_words(listing.created_at) + " ago  " %>
-
-                    <%= link_to("Edit  ", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
-
-                    <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%></p>
-                  </div>
-
-            </div>
-          </div>
-
-
-          </div>
-        </div>
-
-      </div>
     </div>
+  </div>
 
-<% end %>
-</div>
-</div>
+  <div class="row">
+    <% @user_listings.each do |listing| %>
 
+    <div class="col-md-6">
+      <div class="panel panel-default panel-listing">
+        <div class="panel-heading">
+          <div class="container-fluid">
+            <div class="column-xs-6 text-left" >
+              <p><%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%><p>
+            </div>
+            <div class="column-xs-6 text-left">
+              <h4><%=number_to_currency(listing.price, :unit => "$")%></h4>
+            </div>
+          </div>
+        </div>
 
+        <div class="panel-body panel-body-listing">
+          <div class="container-fluid">
 
+            <div class="row">
+              <div class="col-xs-5 panel-column">
+                <%=image_tag(listing.avatar.url(:medium), class: "img-responsive")%>
+              </div>
+
+              <div class="col-xs-7 text-right panel-column">
+                <p><%= listing.description %></p>
+                  <div class= "listing-bottom">
+                    <p><%="Listing updated " + time_ago_in_words(listing.created_at) + " ago  " %>
+
+                      <%= link_to("Edit  ", {:action => 'edit', :id => listing.id}, :class => 'action edit')%>
+
+                      <%= link_to("Delete", {:action => 'delete', :id => listing.id}, :class => 'action delete')%></p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
 </div>
 
 

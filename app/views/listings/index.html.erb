@@ -4,7 +4,6 @@
     <div class="headleft col-xs-6 col-md-4">    
       <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'} %>
       <br>
-      <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
     </div> 
   </h1>
 
@@ -63,26 +62,28 @@
   <%= flash[:notice] %>
 </div>
 <% end %>
-
-    <div class="container">
-      <div class="well listing-well">
-    <h2 class="text-center"> Classified listings </h2>
+  <div class="container">
+    <div class="well listing-well">
+      <h2 class="text-center"> Classified Listings </h2>
     </div>
-      <div class="row">
-        <% @listings.each do |listing| %>
-        <div class="col-md-6">
-          <div class="panel panel-default panel-listing">
+    <%= link_to "Create listing", {:action => 'new'}, :class=> 'btn btn-default new-listing-button' %>
 
-            <div class="panel-heading">
-              <div class="container-fluid">
-                <div class="column-xs-6 text-left" >
-                  <p><%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%><p>
-                </div>
-                <div class="column-xs-6 text-left">
-                  <h4><%=number_to_currency(listing.price, :unit => "$")%></h4>
-                </div>
+
+    <div class="row">
+      <% @listings.each do |listing| %>
+      <div class="col-md-6">
+        <div class="panel panel-default panel-listing">
+
+          <div class="panel-heading">
+            <div class="container-fluid">
+              <div class="column-xs-6 text-left" >
+                <p><%= link_to(listing.name, {:action => 'show', :id => listing.id}, :class => 'action show')%><p>
+              </div>
+              <div class="column-xs-6 text-left">
+                <h4><%=number_to_currency(listing.price, :unit => "$")%></h4>
               </div>
             </div>
+          </div>
 
 
             <div class="panel-body panel-body-listing">
