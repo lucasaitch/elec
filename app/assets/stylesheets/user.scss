@@ -2,20 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container-fluid {
+.page-container {
 	width: 30%;
 }
 
 .user-info {
 	background-color: #EBEBEB;
 	margin: 0 auto;
+	width: 90%;
 	padding: 18px;
 	border-radius: 25px;
 }
 
-.greg {
+.row div:first-child {
 	font-weight: bold;
-	background-color: red;
 }
 
 .edit-profile-button, .edit-profile-button:visited {
@@ -29,7 +29,7 @@
 }
 
 @media (max-width: 767px) {
-    .container-fluid {
+    .page-container {
      	padding: 0;
      	margin: 0 25px;
      	width: 90%;
