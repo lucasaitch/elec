@@ -1,8 +1,9 @@
 README * HOW TO RUN THIS CODE
 =============================
-
+Clone this repository  
+Navigate to the folder 'uni-lf'  
 Make sure RVM is installed   
-
+--------------------------
 bundle exec install  
 rake db:migrate  
 rake db:seed  
