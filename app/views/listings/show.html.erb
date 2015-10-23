@@ -62,17 +62,15 @@
               <div class="container-fluid">
 
                 <div class="row">
-                  <div class="col-xs-5 panel-column">
+                  <div class="col-xs-3 panel-column">
                     <%=image_tag(@listing.avatar.url(:medium), class: "img-responsive")%>
                   </div>
 
-                  <div class="col-xs-7 text-right panel-column">
+                  <div class="col-xs-5 panel-column">
                     <p><%= @listing.description %></p>
-                    <%= form_tag listings_path, :method => "get" do %>
-                    <%= text_field_tag :search, params[:search]   %>
-                    <%= submit_tag("search")  %>
-                    <% end %>
-                      <div class= "listing-bottom">
+
+                      <div class= "listing-bottom text-right">
+
                         <p><%="Listing updated " + time_ago_in_words(@listing.created_at) + " ago  " %>
 
                           <%= link_to("Edit  ", {:action => 'edit', :id => @listing.id}, :class => 'action edit')%>
@@ -80,6 +78,14 @@
                           <%= link_to("Delete", {:action => 'delete', :id => @listing.id}, :class => 'action delete')%></p>
                         </div>
 
+                  </div>
+                  <div class="col-xs-4 panel-column">
+                    <div class="form-bottom">
+                    <%= form_tag listings_path, :method => "get" do %>
+                    <textarea class="form-control" rows="3" name="Contact" id="Contact"></textarea>
+                    <%= submit_tag("Contact Seller")  %>
+                    <% end %>
+                  </div>
                   </div>
                 </div>
 
