@@ -5,6 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Category.delete_all
+
 Category.create(name: "Cars & Vehicles", parent_category_id: nil)
     Category.create(name: "Cars", parent_category_id: Category.find_by(name: "Cars & Vehicles"))
         Category.create(name: "Hatchbacks", parent_category_id: Category.find_by(name: "Cars"))

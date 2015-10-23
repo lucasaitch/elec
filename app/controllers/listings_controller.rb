@@ -19,17 +19,21 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @categorylisting = CategoriesListings.where(:all, :conditions => {:listing_id => @listing.id})
+    @category = Category.where(:all, :conditions => {:id => @categorylisting.category_id})
   end
 
   def new
     @listing = Listing.new
     @session_user = User.find(session[:user_id])
+    @categories = Category.all.order('name ASC')
   end
 
   def create
     @session_user = User.find(session[:user_id])
     # Instantiate a new object using form parameters
     @listing = Listing.new(listing_params)
+    @category = CategoriesListings.new(params[:category], @listing.id)
 
 
     ## Save the object
@@ -43,6 +47,12 @@ class ListingsController < ApplicationController
       render('new')
     end
   end
+  
+#   def category
+#     @category_listing = CategoryListing.newest_first
+#     @category_listing.category_id
+#     
+#   end
 
   def update
    @session_user = User.find(session[:user_id])

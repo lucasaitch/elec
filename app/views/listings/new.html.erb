@@ -10,6 +10,12 @@
       <div class="col-xs-6 col-md-4 greg">Name</div>
       <div class="col-xs-12 col-md-8"><%= f.text_field(:name, class: "input-group form-control") %></div>
     </div>
+    <%= f.fields_for(:category) do |c| %>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">Category</div>
+      <div class="col-xs-12 col-md-8"><%= c.select(:category, options_for_select(@categories.all), class: "input-group form-control") %></div>
+    </div>
+    <% end %>
     <div class="row">
       <div class="col-xs-6 col-md-4">Description</div>
       <div class="col-xs-12 col-md-8"><%= f.text_field(:description, class: "input-group form-control") %></div>
