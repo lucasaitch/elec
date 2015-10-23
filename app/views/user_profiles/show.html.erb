@@ -1,26 +1,5 @@
-<div class="page-header">
-  <h1>
-    <div class="headleft">
-      <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
-      <br>
-      <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
-    </div>
-    <br>
-     
-    <div class="headright">    
-     <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
-    </div>
+<%= render partial: "shares/header", locals: { session_user: @session_user } %>
 
-    <div class="headcenter">
-      <h4>
-      <%= form_tag listings_path, :method => "get" do %>
-      <%= text_field_tag :search, params[:search]   %>
-      <%= submit_tag("search")  %>
-      <% end %>
-      </h4>
-    </div>  
-  </h1>
-</div>
 
 <% if !flash[:notice].blank? %>
   <div class="notice">
