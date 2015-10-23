@@ -1,100 +1,134 @@
-
-
-
-
 <div class="page-header">
   <h1>
-    <div class="headleft">
-      <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
+    <div class="headleft col-xs-6 col-md-4">
+      <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'} %>
       <br>
       <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
     </div>
+  </h1>
 
-    <div class="headright">
-      <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
-    </div>
-    <div class="headcenter">
-      <h3>
-        <%= form_tag listings_path, :method => "get" do %>
-        <%= text_field_tag :search, params[:search]   %>
-        <%= submit_tag("search")  %>
-        <% end %>
-        <h3>
-        </div>
-      </h1>
-    </div>
-
-    <div class="pull-right">
-      <%= link_to "Log Out", {:controller => 'access', :action => 'logout'}, class: 'btn btn-default header-button' %>
-    </div>
-
-    <div class="catcenter">
-      <%= link_to image_tag('medium/listings.png', :size => "237x83"), {:action => 'index'}  %>
-      <%= link_to image_tag('medium/groups.png', :size => "237x83"), {:action => 'index'}  %>
-      <%= link_to image_tag('medium/categories.png', :size => "237x83"), {:action => 'index'}  %>
-      <%= link_to image_tag('medium/createlisting.png', :size => "237x83"), {:action => 'new'}  %>
-
-    </div>
-
-    <% if !flash[:notice].blank? %>
-    <div class="notice">
-      <%= flash[:notice] %>
-    </div>
-    <% end %>
-
-
-
+  <div class="headright col-xs-12 col-md-8">
     <div class="container">
-          <div class="panel panel-default panel-listing">
-            <div class="panel-heading">
-              <div class="container-fluid">
-                <div class="column-xs-6 text-left" >
-                  <p><%= link_to(@listing.name, {:action => 'show', :id => @listing.id}, :class => 'action show')%><p>
-                </div>
-                <div class="column-xs-6 text-left">
-                  <h4><%=number_to_currency(@listing.price, :unit => "$")%></h4>
-                </div>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%= link_to "UniLife", {:action => 'index'}, :class => "navbar-brand" %>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Classified Listings", {:action => 'index'} %></li>
+              <span class="sr-only"></span>
+              <li><%= link_to "My Listings", {:action => 'show_user'} %></li>
+            </ul>
+
+            <%= form_tag(listings_path, :method => "get", class: "navbar-form navbar-left", role: "search") do %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search Classifieds" %>
+            </div>
+            <%= submit_tag("Search", class: "btn btn-default")  %>
+            <% end %>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                role="button" aria-expanded="false">
+                <%="Welcome, " + @session_user.first_name + " " + @session_user.last_name%>
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to("View Profile", {:controller => 'users', :action => 'show'}) %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to("Log Out", {:controller => 'access', :action => 'logout'}) %></li>
+                  <li class="divider"></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<% if !flash[:notice].blank? %>
+<div class="notice">
+  <%= flash[:notice] %><% end %>
+</div>
+
+
+<div class="container">
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default panel-listing">
+      <div class="panel-heading">
+        <div class="container-fluid">
+          <div class="column-xs-6 text-left" >
+            <p><%= link_to(@listing.name, {:action => 'show', :id => @listing.id}, :class => 'action show')%><p>
+            </div>
+            <div class="column-xs-6 text-left">
+              <h4><%=number_to_currency(@listing.price, :unit => "$")%></h4>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="panel-body panel-body-listing">
+          <div class="container-fluid">
+
+            <div class="row">
+              <div class="col-xs-5 panel-column">
+                <%=image_tag(@listing.avatar.url(:medium), class: "img-responsive")%>
+              </div>
+
+              <div class="col-xs-7 text-right panel-column">
+                <p><%= @listing.description %></p>
+
               </div>
             </div>
 
+            <div class= "listing-bottom">
 
-            <div class="panel-body panel-body-listing">
-              <div class="container-fluid">
+              <p><%="Listing updated " + time_ago_in_words(@listing.created_at) + " ago  " %>
 
-                <div class="row">
-                  <div class="col-xs-5 panel-column">
-                    <%=image_tag(@listing.avatar.url(:medium), class: "img-responsive")%>
-                  </div>
+                <%= link_to("Edit  ", {:action => 'edit', :id => @listing.id}, :class => 'action edit')%>
 
-                  <div class="col-xs-7 text-right panel-column">
-                    <p><%= @listing.description %></p>
-                    <%= form_tag listings_path, :method => "get" do %>
-                    <%= text_field_tag :search, params[:search]   %>
-                    <%= submit_tag("search")  %>
-                    <% end %>
-                      <div class= "listing-bottom">
-                        <p><%="Listing updated " + time_ago_in_words(@listing.created_at) + " ago  " %>
-
-                          <%= link_to("Edit  ", {:action => 'edit', :id => @listing.id}, :class => 'action edit')%>
-
-                          <%= link_to("Delete", {:action => 'delete', :id => @listing.id}, :class => 'action delete')%></p>
-                        </div>
-
-                  </div>
-                </div>
-
-
-                </div>
+                <%= link_to("Delete", {:action => 'delete', :id => @listing.id}, :class => 'action delete')%></p>
               </div>
 
             </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+      <div class="col-md-6">
+      <div class="panel panel-default panel-listing">
+        <div class="panel-heading">
+        </div>
+        <div class="panel-body panel-body-listing">
+          <div class="form-group">
+            <%= form_tag(listings_path, :method => "get", class: "", role: "search") do %>
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search Classifieds" %>
+
+            <%= submit_tag("Submit query", class: "btn btn-default")  %>
+
+          </div>
+          <% end %>
+        </div>
 
       </div>
     </div>
-
-
-
-    <hr class="faded"/>
-
-  </div>
 </div>
+  </div>
+
+
+
+<hr class="faded"/>

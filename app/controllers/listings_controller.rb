@@ -17,6 +17,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    @session_user = User.find(session[:user_id])
   end
 
   def new
