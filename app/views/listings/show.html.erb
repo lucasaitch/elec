@@ -1,40 +1,5 @@
+<%= render partial: "shares/header", locals: { session_user: @session_user } %>
 
-
-
-
-<div class="page-header">
-  <h1>
-    <div class="headleft">
-      <%= link_to image_tag('medium/unilifelogo.jpg'), {:action => 'index'}  %>
-      <br>
-      <small><%= link_to "Where teams come true", {:action => 'index'} %></small>
-    </div>
-
-    <div class="headright">
-      <%= image_tag("medium/taskbar.jpg", :alt => "rss feed") %>
-    </div>
-    <div class="headcenter">
-      <h3>
-        <%= form_tag listings_path, :method => "get" do %>
-        <%= text_field_tag :search, params[:search]   %>
-        <%= submit_tag("search")  %>
-        <% end %>
-        <h3>
-        </div>
-      </h1>
-    </div>
-
-    <div class="pull-right">
-      <%= link_to "Log Out", {:controller => 'access', :action => 'logout'}, class: 'btn btn-default header-button' %>
-    </div>
-
-    <div class="catcenter">
-      <%= link_to image_tag('medium/listings.png', :size => "237x83"), {:action => 'index'}  %>
-      <%= link_to image_tag('medium/groups.png', :size => "237x83"), {:action => 'index'}  %>
-      <%= link_to image_tag('medium/categories.png', :size => "237x83"), {:action => 'index'}  %>
-      <%= link_to image_tag('medium/createlisting.png', :size => "237x83"), {:action => 'new'}  %>
-
-    </div>
 
     <% if !flash[:notice].blank? %>
     <div class="notice">
