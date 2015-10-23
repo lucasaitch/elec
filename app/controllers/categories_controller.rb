@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   
   def index
     @categories = Category.all.order("name ASC")
-    @toplevel_categories = Category.where(:parent_category_id => nil)
+    @toplevel_categories = Category.find_by(:parent_category_id => nil)
 #     @categories = Category.all.order("name ASC")
   end
 
