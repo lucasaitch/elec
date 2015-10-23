@@ -86,6 +86,12 @@ Built by David Stringfield for ELEC3609
 	background-color: #71c4d8;
 }
 
+@media (max-width: 990px) {
+	.page-header {
+    	height: 220px;
+    }
+}
+
 /*Additional CSS for small format screens*/
 @media (max-width: 767px) {
     .page-container {
@@ -93,7 +99,12 @@ Built by David Stringfield for ELEC3609
      	margin: 0 10px;
      	width: 100%;
     }
+
+    .page-header {
+    	height: 160px;
+    }
 }
+
 
 .new-listing {
 	margin: 0 auto;
