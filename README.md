@@ -10,3 +10,7 @@ rails s
 
 then open localhost:3000 in your browser
 
+HOW TO VIEW THE WEBSITE
+=======================
+
+Point your browser to http://104.131.43.227:3000/
